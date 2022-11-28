@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kidzrunz</title>
 
-    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+    {% comment %} <link href="{% static 'css/tailwind.css' %}" rel="stylesheet"> {% endcomment %}
 	<!-- Tailwind -->
-	{% comment %} <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> {% endcomment %}
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 	<!-- Alpine -->
 	<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
 	<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
@@ -267,24 +267,28 @@
 		</div>
 
 		<!-- Tools For Teachers And Learners -->
+		{% for package in packages %}
+		{% if forloop.counter|divisibleby:2 %}
 		<div class="flex flex-col md:flex-row items-center md:space-x-10 mt-16">
 			<div data-aos="fade-right" class="md:w-1/2 lg:pl-14">
-				<h1 class="text-darken font-semibold text-3xl lg:pr-56"><span class="text-yellow-500">Tools</span> For Teachers And Learners</h1>
-				<p class="text-gray-500 my-4 lg:pr-32">Class has a dynamic set of teaching tools built to be deployed and used during class. Teachers can handout assignments in real-time for students to complete and submit.</p>
+				<h1 class="text-darken font-semibold text-3xl lg:pr-56"><span class="text-yellow-500">{{ package.name }}</span> Activity Pack</h1>
+				<p class="text-gray-500 my-4 lg:pr-32">{{ package.description|linebreaks }}</p>
 			</div>
 			<img data-aos="fade-left" class="md:w-1/2" src="https://mhaecal.github.io/frontend/img/girl-with-books.png">
 		</div>
-
+		{% else %}
 		<!-- Assessments, Quizzes, Tests -->
 		<div class="mt-20 flex flex-col-reverse md:flex-row items-center md:space-x-10">
 			<div data-aos="fade-right" class="md:w-6/12">
 				<img class="md:w-11/12" src="https://mhaecal.github.io/frontend/img/true-false.png">
 			</div>
 			<div data-aos="fade-left" class="md:w-6/12 md:transform md:-translate-y-20">
-				<h1 class="font-semibold text-darken text-3xl lg:pr-64">Assessments, <span class="text-yellow-500">Quizzes</span>, Tests</h1>
-				<p class="text-gray-500 my-5 lg:pr-52">Easily launch live assignments, quizzes, and tests. Student results are automatically entered in the online gradebook.</p>
+				<h1 class="font-semibold text-darken text-3xl lg:pr-56"><span class="text-yellow-500">{{ package.name }}</span> Activity Pack</h1>
+				<p class="text-gray-500 my-5 lg:pr-52">{{ package.description|linebreaks }}</p>
 			</div>
 		</div>
+		{% endif %}
+		{% endfor %}
 
 		<!-- Class Management Tools for Educators -->
 		<div class="flex flex-col md:flex-row items-center mt-12">
@@ -403,57 +407,26 @@
 		</div> {% endcomment %}
 
 		<!-- Latest News and Resources -->
-		<div data-aos="zoom-in" class="mt-16 text-center">
+		<div data-aos="zoom-in-up" class="mt-16 text-center">
 			<h1 class="text-darken text-2xl font-semibold">Our Services</h1>
 			<p class="text-gray-500 my-5">Our services include (but are not limited to).</p>
 		</div>
-		<div data-aos="zoom-in-up" class="my-14 flex flex-col lg:flex-row lg:space-x-20">
-			<div class="lg:w-6/12">
-				<img class="w-full mb-6" src="https://mhaecal.github.io/frontend/img/laptop-news.png">
-				<span class="bg-yellow-300 text-darken font-semibold px-4 py-px text-sm rounded-full">NEWS</span>
-				<h1 class="text-gray-800 font-semibold my-3 text-xl">Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h1>
-				<p class="text-gray-500 mb-3">Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
-				<a href="" class="underline">Read more</a>
-			</div>
-			<div class="lg:w-7/12 flex flex-col justify-between mt-12 space-y-5 lg:space-y-0 lg:mt-0">
+		<div class="my-14 flex flex-col lg:flex-row lg:space-x-20 lg:mx-16">
+			<div class="flex-col md:grid md:grid-rows-3 md:grid-flow-col gap-x-10 justify-between mt-12 space-y-5 lg:space-y-5 lg:mt-0">
 				{% for service in services %}
-				<div class="flex space-x-5">
-					<div class="w-4/12">
+				<div data-aos="zoom-in" class="flex flex-col md:flex-row space-x-5">
+					<div class="w-full md:w-4/12 p-4 md:p-0">
 						<div class="relative">
-							<img class="rounded-xl w-full" src="https://mhaecal.github.io/frontend/img/children-laptop.png">
-							<span class="absolute bottom-2 right-2 bg-yellow-300 text-darken font-semibold px-4 py-px text-sm rounded-full hidden sm:block">PRESS RELEASE</span>
+							<img class="rounded-xl w-full" src="media/{{ service.image|default:'services/placeholder.png' }}">
+							{% comment %} <span class="absolute bottom-2 right-2 bg-yellow-300 text-darken font-semibold px-4 py-px text-sm rounded-full hidden sm:block">PRESS RELEASE</span> {% endcomment %}
 						</div>
 					</div>
-					<div class="w-8/12">
-						<h1 class="text-gray-800 text-sm sm:text-lg font-semibold">{{ service.name }}</h1>
-						<p class="text-gray-500 my-2 sm:my-4 text-xs sm:text-md">Class Technologies Inc., the company that created Class,...</p>
+					<div class="w-full md:w-8/12">
+						<h1 class="text-gray-800 sm:text-lg font-semibold">{{ service.name }}</h1>
+						<p class="text-gray-500 my-2 sm:my-3 text-sm sm:text-md">{{ service.description|default:'' }}</p>
 					</div>
 				</div>
 				{% endfor %}
-				<div class="flex space-x-5">
-					<div class="w-4/12">
-						<div class="relative">
-							<img class="rounded-xl w-full" src="https://mhaecal.github.io/frontend/img/girl-laptop.png">
-							<span class="absolute bottom-2 right-2 bg-yellow-300 text-darken font-semibold px-4 py-px text-sm rounded-full hidden sm:block">NEWS</span>
-						</div>
-					</div>
-					<div class="w-8/12">
-						<h1 class="text-gray-800 text-sm sm:text-lg font-semibold">Zoom’s earliest investors are betting millions on a better Zoom for schools</h1>
-						<p class="text-gray-500 my-2 sm:my-4 text-xs sm:text-md">Zoom was never created to be a consumer product. Nonetheless, the...</p>
-					</div>
-				</div>
-				<div class="flex space-x-5">
-					<div class="w-4/12">
-						<div class="relative">
-							<img class="rounded-xl w-full" src="https://mhaecal.github.io/frontend/img/cat-laptop.png">
-							<span class="absolute bottom-2 right-2 bg-yellow-300 text-darken font-semibold px-4 py-px text-sm rounded-full hidden sm:block">NEWS</span>
-						</div>
-					</div>
-					<div class="w-8/12">
-						<h1 class="text-gray-800 text-sm sm:text-lg font-semibold">Former Blackboard CEO Raises $16M to Bring LMS Features to Zoom Classrooms</h1>
-						<p class="text-gray-500 my-2 sm:my-4 text-xs sm:text-md">This year, investors have reaped big financial returns from betting on Zoom...</p>
-					</div>
-				</div>
 			</div>
 		</div>
 		
