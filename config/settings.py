@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_browser_reload',
     'website',
+    'auth_app',
 ]
+
+
+# Custom auth class
+AUTH_USER_MODEL = 'auth_app.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -45,8 +45,8 @@
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="#">Careers</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="#">Blog</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="#">About Us</a>
-                <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4" href="#">Login</a>
-                <a class="px-10 py-3 mt-2 text-sm text-center bg-yellow-500 text-white rounded-full md:mt-8 md:ml-4" href="#">Sign Up</a>
+                <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4" href="login">Login</a>
+                <a class="px-10 py-3 mt-2 text-sm text-center bg-yellow-500 text-white rounded-full md:mt-8 md:ml-4" href="signup">Sign Up</a>
             </nav>
         </div>
     </div>
@@ -123,8 +123,8 @@
 			<p class="leading-relaxed text-gray-500">Our services include (but are not limited to).</p>
 		</div>
 		<!-- card -->
-		<div class="px-3 md:lg:xl:px-40 border-t border-b py-20 bg-opacity-10" style="background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png') ;">
-			<div class="grid grid-cols-3 md:lg:xl:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border ">
+		<div class="px-3 md:lg:xl:px-40 bg-opacity-10">
+			<div class="grid grid-cols-3 md:lg:xl:grid-cols-3 group">
 				{% for service in services %}
 				<div data-aos="zoom-in-up" class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50">
 					<span class="p-5 rounded-full text-white shadow-lg shadow-red-200 {% cycle 'bg-red-500' 'bg-yellow-500' 'bg-blue-500' 'bg-green-500' 'bg-indigo-500' 'bg-pink-500' %}">
@@ -142,7 +142,7 @@
 
 			<div class="w-full   bg-indigo-600 shadow-xl shadow-indigo-200 py-10 px-20 flex justify-between items-center">
 				<p class=" text-white"> <span class="text-4xl font-medium">Still Confused ?</span> <br> <span class="text-lg">Book A Free Consultation Today ! </span></p>
-				<button class="px-5 py-3  font-medium text-slate-700 shadow-xl  hover:bg-white duration-150  bg-yellow-500">BOOK AN APPOINTMENT </button>
+				<button class="px-5 py-3  font-medium  text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-yellow-500">BOOK AN APPOINTMENT </button>
 			</div>
 		</div>
 
