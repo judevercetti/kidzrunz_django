@@ -20,7 +20,7 @@ def service_directory_path(instance, filename):
 class Service(models.Model):
     name = models.CharField(_("Name"), max_length=256)
     description = models.TextField(_("Description"), blank=True)
-    image = models.ImageField(upload_to=service_directory_path, blank=True)
+    image = models.FileField(upload_to=service_directory_path, blank=True)
     slug = models.SlugField(_("Safe Url"), unique=True, blank=True, null=True)
     created_on = models.DateField(_("Created on"), default=timezone.now)
 
@@ -48,7 +48,7 @@ class Package(models.Model):
     duration = models.IntegerField(_("Duration"))
     price = models.IntegerField(_("Price"))
     description = models.TextField(_("Description"), blank=True)
-    image = models.ImageField(upload_to=package_directory_path, blank=True)
+    image = models.FileField(upload_to=package_directory_path, blank=True)
     slug = models.SlugField(_("Safe Url"), unique=True, blank=True, null=True)
     created_on = models.DateField(_("Created on"), default=timezone.now)
 
