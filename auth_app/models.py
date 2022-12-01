@@ -20,7 +20,7 @@ class User(AbstractUser):
     email = models.EmailField(
         _('email address'), max_length=254, unique=True, blank=True)
     phone_number = models.CharField(max_length=15, blank=True)
-    display_photo = models.ImageField(
+    display_photo = models.FileField(
         upload_to=user_directory_path, blank=True)
 
     USERNAME_FIELD: str = 'email'
