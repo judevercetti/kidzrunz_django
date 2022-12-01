@@ -16,17 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
-from auth_app import views as AuthViews
+from django.contrib.auth.decorators import login_required
 
 from config import settings
+from auth_app.views import ForgotPassword, Login, ResetPassword, Signup
 
 urlpatterns = [
     path('', include('website.urls')),
-    path('login', AuthViews.login),
-    path('signup', AuthViews.signup),
-    path('forgot-password', AuthViews.forgotPassword),
-    path('reset-password', AuthViews.resetPassword),
+    path('login', Login.as_view(), name='login'),
+    path('signup', Signup.as_view()),
+    path('forgot-password', ForgotPassword.as_view()),
+    path('reset-password', ResetPassword.as_view()),
     
+    path('console', include(('console.urls', 'console'), namespace='console')),
+
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
