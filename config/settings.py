@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_browser_reload',
+    # 'django_browser_reload',
     'website',
     'console',
     'auth_app',
+    # 'django_hosts',
 ]
 
 
@@ -56,10 +57,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
+    # 'django_hosts.middleware.HostsRequestMiddleware',
+    # 'django_hosts.middleware.HostsResponseMiddleware',
+    # "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
+# ROOT_HOSTCONF = 'config.hosts'
+
+# DEFAULT_HOST = ' '
 
 TEMPLATES = [
     {

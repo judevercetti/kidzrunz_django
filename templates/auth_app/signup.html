@@ -21,6 +21,19 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Create an account
                 </h1>
+                
+            {% if messages %} {% for message in messages %} {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="flex justify-between content-center text-normal br-sm font-600" style="border: 1px solid rgb(236, 35, 35); color: rgb(236, 35, 35); padding: 0.5rem 1.5rem" onclick="(function(){event.target.style.display = 'none';return false;})()">
+              <p>{{ message }}</p>
+              <i style="align-self: center" onclick="(function(){event.target.parentNode.style.display = 'none';return false;})()" class="fa fa-close"></i>
+            </div>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="flex justify-between content-center text-normal br-sm font-600" style="border: 1px solid rgb(37, 141, 2930); color: rgb(37, 141, 2930); padding: 0.5rem 1.5rem" onclick="(function(){event.target.style.display = 'none';return false;})()">
+              <p>{{ message }}</p>
+              <i style="align-self: center" onclick="(function(){event.target.parentNode.style.display = 'none';return false;})()" class="fa fa-close"></i>
+            </div>
+            {% endif %} {% endfor %} {% endif %}
+            
                 <form class="space-y-4 md:space-y-6" action="" method="POST">
                     {% csrf_token %}
                     <div class="flex flex-col md:flex-row justify-between">

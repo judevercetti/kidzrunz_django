@@ -19,17 +19,18 @@ from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 
 from config import settings
-from auth_app.views import ForgotPassword, Login, ResetPassword, Signup
+from auth_app.views import ForgotPassword, Login, Logout, ResetPassword, Signup
 
 urlpatterns = [
-    path('', include('website.urls')),
+    path('', include(('website.urls', 'website'), namespace='website')),
     path('login', Login.as_view(), name='login'),
+    path('logout', Logout.as_view(), name='logout'),
     path('signup', Signup.as_view()),
     path('forgot-password', ForgotPassword.as_view()),
     path('reset-password', ResetPassword.as_view()),
     
-    path('console', include(('console.urls', 'console'), namespace='console')),
+    path('console/', include(('console.urls', 'console'), namespace='console')),
 
     path('admin/', admin.site.urls),
-    path("__reload__/", include("django_browser_reload.urls")),
+    # path("__reload__/", include("django_browser_reload.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

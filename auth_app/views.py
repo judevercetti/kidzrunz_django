@@ -14,8 +14,34 @@ class Login(View):
 
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect(reverse("console:dashboard"))
+            return redirect("console:dashboard")
         return render(request, self.template_name)
+
+    def post(self, request):
+        if not (request.POST.get("email") and request.POST.get("password")):
+            messages.add_message(request, messages.ERROR,
+                                 _("Please Fill all fields."))
+            return redirect("auth_app:login")
+
+        user = authenticate(
+            username=request.POST.get("email"), password=request.POST.get("password")
+        )
+        if not user:
+            messages.add_message(
+                request, messages.ERROR, _("Account not found. Try Again.")
+            )
+            return redirect("login")
+
+        login(request, user)
+        if request.GET.get("next"):
+            return redirect(request.GET.get("next"))
+        return redirect("console:dashboard")
+
+
+class Logout(View):
+    def get(self, request):
+        logout(request)
+        return redirect("website:index")
 
 
 class Signup(View):
