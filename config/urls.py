@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include(('website.urls', 'website'), namespace='website')),
     path('login', Login.as_view(), name='login'),
     path('logout', Logout.as_view(), name='logout'),
-    path('signup', Signup.as_view()),
+    path('signup', Signup.as_view(), name='signup'),
     path('forgot-password', ForgotPassword.as_view()),
     path('reset-password', ResetPassword.as_view()),
     
