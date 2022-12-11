@@ -1,4 +1,4 @@
-/media
+# /media
+# /staticfiles
 /node_modules
-/staticfiles
 /venv
