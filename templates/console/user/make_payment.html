@@ -1,0 +1,69 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+
+<script src="https://js.braintreegateway.com/web/dropin/1.33.7/js/dropin.js"></script>
+{% comment %}
+<script src="https://js.braintreegateway.com/web/3.88.4/js/client.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.88.4/js/data-collector.min.js"></script>
+{% endcomment %}
+
+<div class="flex justify-center items-center py-10">
+  <div class="bg-gray-200 p-4 w-1/2 rounded-lg">
+    <h2 class="text-xl font-bold">Make Payment</h2>
+    <p class="mb-4">£{{amount}} will be deducted from your account.</p>
+    <form>{% csrf_token %}</form>
+
+    <div id="loading-container">Loading... please wait</div>
+    <div id="dropin-container"></div>
+    <button id="submit-button" class="hidden px-4 py-2 mt-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Purchase</button>
+    <div id="checkout-message"></div>
+  </div>
+</div>
+
+<script>
+  var button = document.querySelector("#submit-button");
+
+  braintree.dropin.create(
+    {
+      authorization: "{{client_token}}",
+      selector: "#dropin-container",
+    },
+    function (err, instance) {
+      $('#loading-container').addClass('hidden');
+      $('#submit-button').removeClass('hidden');
+      button.addEventListener("click", function () {
+        instance.requestPaymentMethod(function (err, payload) {
+          // Submit payload.nonce to your server
+          $.ajax({
+            type: "POST",
+            url: "{% url 'console:payment' %}",
+            data: { payment_method_nonce: payload.nonce, appointment_id: "{{appointment_id}}" },
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader("X-CSRFToken", document.getElementsByName("csrfmiddlewaretoken")[0].value);
+            },
+          }).done(function (result) {
+            // Tear down the Drop-in UI
+            instance.teardown(function (teardownErr) {
+              if (teardownErr) {
+                console.error("Could not tear down Drop-in UI!");
+              } else {
+                console.info("Drop-in UI has been torn down!");
+                // Remove the 'Submit payment' button
+                $("#submit-button").remove();
+              }
+            });
+
+            if (result.success) {
+              $("#checkout-message").html(`<h1>Success</h1><p class="px-4 py-2 mt-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"><a href="{% url 'console:dashboard' %}">Return to dashboard</p>`);
+              window.location = "{% url 'console:dashboard' %}"
+            } else {
+              console.log(result);
+              $("#checkout-message").html("<h1>Error</h1><p>Check your console.</p>");
+            }
+          });
+        });
+      });
+    }
+  );
+</script>
+
+{% endblock contentarea %}

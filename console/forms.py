@@ -6,4 +6,4 @@ from console.models import Appointment
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        exclude = ('user', 'created_on')
+        exclude = ('user', 'created_on', 'status')
