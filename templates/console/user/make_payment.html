@@ -6,8 +6,8 @@
 <script src="https://js.braintreegateway.com/web/3.88.4/js/data-collector.min.js"></script>
 {% endcomment %}
 
-<div class="flex justify-center items-center py-10">
-  <div class="bg-gray-200 p-4 w-1/2 rounded-lg">
+<div class="flex justify-center items-center py-10 px-4">
+  <div class="bg-gray-100 p-4 w-full md:w-1/2 rounded-lg">
     <h2 class="text-xl font-bold">Make Payment</h2>
     <p class="mb-4">£{{amount}} will be deducted from your account.</p>
     <form>{% csrf_token %}</form>

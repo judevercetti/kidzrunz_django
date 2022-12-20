@@ -1,0 +1,114 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet" />
+
+<div class="my-10 px-4 md:mx-auto w-full md:w-1/2">
+  <div class="mt-5 md:mt-0">
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="overflow-hidden shadow sm:rounded-md">
+        <div class="bg-white px-4 py-5 sm:p-6">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6">
+              <label class="block text-sm font-medium text-gray-700">Photo</label>
+
+              <div class="mt-1 flex flex-col md:flex-row items-center">
+                <span class="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100 mb-3 md:mb-0">
+                  {% if user.display_photo %}
+                  <img src="/media/{{ user.display_photo }}" alt="people" width="56" id="profile_image" class="rounded-circle object-cover" />
+                  {% else %}
+                  <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  {% endif %}
+                </span>
+                <div>
+                  {% comment %} <label for="display_photo"> <button type="button" class="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Change</button> {% endcomment %} </label>
+                  <input type="file" name="display_photo" id="display_photo" class="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onchange="setProfileImage(event)" />
+                  <script>
+                    setProfileImage = (e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                          $("#profile_image").attr("src", e.target.result);
+                        };
+                        reader.readAsDataURL(e.target.files[0]);
+                      }
+                    };
+                  </script>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+              <input type="text" name="first_name" id="first_name" value="{{request.user.first_name}}" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+              <input type="text" name="last_name" id="last_name" value="{{request.user.last_name}}" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <label for="email-address" class="block text-sm font-medium text-gray-700">Phone number</label>
+              <input type="text" name="phone_number" id="phone_number" value="{{request.user.phone_number}}" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+              <input type="text" name="email" id="email" value="{{request.user.email}}" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+              <select id="gender" name="gender" autocomplete="country-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                {% for id, gender in genders %}
+                <option value="{{id}}" {% if request.user.profile.gender is id %} selected {% endif %}>{{gender}}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="col-span-6">
+              <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
+              <input type="text" name="street_address" id="street_address" value="{{request.user.profile.street_address}}" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+              <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+              <input type="text" name="city" id="city" value="{{request.user.profile.city}}" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+              <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
+              <input type="text" name="state" id="state" value="{{request.user.profile.state}}" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+              <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
+              <input type="text" name="postal_code" id="postal_code" value="{{request.user.profile.postal_code}}" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+          <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock contentarea %}

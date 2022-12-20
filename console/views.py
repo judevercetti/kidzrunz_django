@@ -6,6 +6,7 @@ from django.views import View
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.contrib.auth.mixins import LoginRequiredMixin
+from auth_app.models import Profile, User
 from console.forms import AppointmentForm
 from console.models import Appointment, BraintreeCustomer, BraintreeTransaction
 
@@ -29,6 +30,31 @@ class Dashboard(LoginRequiredMixin, View):
         appointment.save()
         return redirect('console:dashboard')
         
+
+class ProfileView(View):
+    template_name = "console/user/profile.html"
+
+    def get(self, request):
+        context = {'genders': Profile.Gender.choices}
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        user = User.objects.get(pk=request.user.id)
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        user.phone_number = request.POST.get('phone_number')
+        user.email = request.POST.get('email')
+        user.profile.gender = request.POST.get('gender')
+        user.profile.street_address = request.POST.get('street_address')
+        user.profile.city = request.POST.get('city')
+        user.profile.state = request.POST.get('state')
+        user.profile.postal_code = request.POST.get('postal_code')
+        print(request.FILES.get('display_photo'))
+        if request.FILES.get('display_photo'):
+            user.display_photo = request.FILES.get('display_photo')
+
+        user.save()
+        return redirect('console:profile')
 
 class MakeAppointment(LoginRequiredMixin, View):
     login_url = 'login'
