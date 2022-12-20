@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.contrib.auth import login, authenticate, logout
 
-from auth_app.models import User
+from auth_app.models import Profile, User
 
 # Create your views here.
 
@@ -50,7 +50,9 @@ class Signup(View):
     def get(self, request):
         if request.user.is_authenticated:
             return redirect(reverse("console:dashboard"))
-        return render(request, self.template_name)
+
+        context = {'genders': Profile.Gender.choices}
+        return render(request, self.template_name, context)
 
     def post(self, request):
         if not (
@@ -58,6 +60,8 @@ class Signup(View):
             and request.POST.get("lastname")
             and request.POST.get("phone_number")
             and request.POST.get("email")
+            and request.POST.get("gender")
+            and request.POST.get("birth_date")
             and request.POST.get("password")
         ):
             print('Fill all fields')
@@ -67,7 +71,7 @@ class Signup(View):
         if User.objects.filter(email=request.POST.get("email")):
             messages.add_message(request, messages.ERROR,
                                  _("Email not available."))
-            return redirect("auth_app:signup")
+            return redirect("signup")
 
 
         user = User.objects.create_user(
@@ -78,6 +82,11 @@ class Signup(View):
             username=f'{request.POST.get("firstname")}{request.POST.get("lastname")}'.lower(),
             password=request.POST.get("password"),
         )
+
+        user.profile.gender = request.POST.get("gender")
+        user.profile.birth_date = request.POST.get("birth_date")
+        user.save()
+
 
         login(request, user)
         if request.GET.get("next"):

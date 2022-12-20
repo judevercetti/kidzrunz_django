@@ -43,6 +43,7 @@ class Profile(models.Model):
     city = models.CharField(max_length=50, blank=True)
     state = models.CharField(max_length=50, blank=True)
     postal_code = models.CharField(max_length=50, blank=True)
+    birth_date = models.DateField(blank=True, null=True)
     gender = models.IntegerField(
         choices=Gender.choices, default=Gender.FEMALE)
 
