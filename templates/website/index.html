@@ -1,54 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kidzrunz</title>
+{% extends './base.html' %} {% load static %} {% block contentarea %}
 
-    {% comment %} <link href="{% static 'css/tailwind.css' %}" rel="stylesheet"> {% endcomment %}
-	<!-- Tailwind -->
-	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-	<!-- Alpine -->
-	<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-	<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
-	<!-- AOS -->
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-	<!-- Custom style -->
-	{% comment %} <link rel="stylesheet" href="css/Kidzrunz.css" /> {% endcomment %}
-    <link href="{% static 'css/skilline.css' %}" rel="stylesheet" >
-	<!-- Poppins font -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
-</head>
-<body class="antialiased">
-	<!-- navbar -->
-	<div x-data="{ open: false }" class="w-full text-gray-700 bg-cream">
-        <div class="flex flex-col max-w-screen-xl px-8 mx-auto md:items-center md:justify-between md:flex-row">
-            <div class="flex flex-row items-center justify-between py-6">
-                <div class="relative md:mt-1">
-                    <a href="#" class="text-transparent text-lg relative z-50 font-bold tracking-widest rounded-lg focus:outline-none focus:shadow-outline">
-					Kidzrunz</a>
-					<img src="{% static 'images/logo.png' %}" alt="" class="h-30 z-40 absolute -top-10 md:-top-5 -left-5">
-                </div>
-                <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-                    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                        <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                        <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-            </div>
-            <nav :class="{ 'transform md:transform-none': !open, 'h-full': open }" class="h-0 md:h-auto flex flex-col flex-grow md:items-center pb-4 md:pb-0 md:flex md:justify-end md:flex-row origin-top duration-300 scale-y-0">
-                <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:pt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="#home">Home</a>
-                <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:pt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="#aboutus">About Us</a>
-                <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:pt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="#activities">Activities</a>
-                <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:pt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="#gallery">Gallery</a>
-                <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4" href="login">Login</a>
-                <a class="px-10 py-3 mt-2 text-sm text-center bg-blue-400 text-white rounded-full md:mt-8 md:ml-4" href="signup">Sign Up</a>
-            </nav>
-        </div>
-    </div>
 	<div class="bg-cream">
 		<div class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
 			<!--Left Col-->
@@ -174,53 +125,10 @@
 			</div>
 		</div>
 
-
-		<!-- lorem -->
-		<div class="mt-28" id="aboutus">
-			<div data-aos="flip-down" class="text-center max-w-screen-md mx-auto">
-				<h1 class="text-3xl font-bold mb-4">What is<span class="text-blue-400"> Kidzrunz?</span></h1>
-				<p class="text-gray-500">
-                    Kidz Runz aims to provide mentorship to young people. To help them create a life of empowerment, dignity, self-esteem, confidence, and fulfillment. Kidz Runz inspires self-awareness and helps young people develop their talents, skills, and passions. Kidz Runz teaches communication, improved interpersonal skills, leadership, and emotional management skills. Kidz Runz shows young people that there are people that care for them and that they are not alone. Mentoring is a critical asset for young people and is linked to improved academia and better prospects.   
-				</p>
-				<p class="text-gray-500 mt-2">
-					We provide recreational activity packages for youths and encourage families to adopt a positive reinforcement approach to parenting.
-				</p>
-				<p class="text-gray-500 mt-2">
-					We offer bespoke packages aimed at youths with learning difficulties, those struggling with family dynamics as they grow, learn and become young adults, and more...
-				</p>
-				<p class="text-gray-500 mt-2">
-					We provide professional support to families that need trustworthy, reliable role models to encourage and engage with their children, supporting and enhancing their behavioral, educational, domestic, and social development.
-				</p>
-				<p class="text-gray-500 mt-2">
-					Connecting with us was the first step, now it's time to pick the package that works best for you and your family! 
-                </p>
-			</div>
-			<div data-aos="fade-up" class="flex flex-col md:flex-row justify-center space-y-5 md:space-y-0 md:space-x-6 lg:space-x-10 mt-7">
-				<div class="relative md:w-5/12">
-					<img class="rounded-2xl h-full" src="https://familyvacationist.com/wp-content/uploads/2021/06/RamblingRiver7-scaled-e1624308063713-1600x900.jpg" alt="">
-					<div class="absolute bg-black bg-opacity-20 bottom-0 left-0 right-0 w-full h-full rounded-2xl">
-						<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-							<h1 class="uppercase text-white font-bold text-center text-sm lg:text-xl mb-3">FOR INSTRUCTORS</h1>
-							{% comment %} <button class="rounded-full text-white border text-xs lg:text-md px-6 py-3 w-full font-medium focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">Start a class today</button> {% endcomment %}
-						</div>
-					</div>
-				</div>
-				<div class="relative md:w-5/12">
-					<img class="rounded-2xl" src="https://cdn.cdnparenting.com/articles/2019/08/19162548/58348453-H.jpg" alt="">
-					<div class="absolute bg-black bg-opacity-20 bottom-0 left-0 right-0 w-full h-full rounded-2xl">
-						<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-							<h1 class="uppercase text-white font-bold text-center text-sm lg:text-xl mb-3">FOR KIDS</h1>
-							{% comment %} <button class="rounded-full text-white text-xs lg:text-md px-6 py-3 w-full font-medium focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out" style="background: rgba(35, 189, 238, 0.9)">Enter access code</button> {% endcomment %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="sm:flex items-center sm:space-x-8 mt-36" id="activities">
-			<div data-aos="fade-right" class="sm:w-2/3 relative">
-				<div class="bg-blue-400 rounded-full absolute w-12 h-12 z-0 -left-4 -top-3 animate-pulse"></div>
-				<h1 class="font-semibold text-2xl relative z-50 text-green-600 lg:pr-10">Ativities <span class="text-blue-400">you can do with Kidzrunz</span></h1>
+		<div class="sm:flex items-center sm:space-x-8 mt-36 md:mx-20" id="activities">
+			<div data-aos="fade-right" class="sm:w-1/2 relative">
+				<div class="bg-blue-400 rounded-full absolute w-12 h-12 z-0 -top-3 animate-pulse"></div>
+				<h1 class="font-semibold text-2xl relative z-50 text-center text-green-600 lg:pr-10">Ativities <span class="text-blue-400">you can do with Kidzrunz</span></h1>
 				<p class="py-5 lg:pr-32">
 					<p>
 						Each parent/carer has the option to top up their KidzRunz Activity voucher to cover any further costs for activities booked for each session. This will be an additional top up to the £20 that is included in the Pricing Package (as explained above). 
@@ -228,7 +136,7 @@
 					<p class="py-5">
 						Please note that money on an Activity Voucher should cover the total costs of any activity planned with your child (please note that this is at your discretion, there are many fun non-monetary activities that your child can enjoy). It is at your discretion how much money you top up on your voucher. Please ensure you top up enough money prior to the start of each session for any planned activities you have booked in with us.
 					</p>
-					<p>
+					{% comment %} <p>
 						Money topped up on each voucher can be used up to 1 year after initial top up and can be transferred to an existing or new user of KidzRunz where desired, provided that it is transferred within the 1-year period of which it is valid.
 					</p>
 					<p class="py-5">
@@ -236,31 +144,33 @@
 					</p>
 					<p>
 						(E.G. If purchasing a pricing package and a £200 KidzRunz Activity Voucher in the same transaction, the total money on the Activity Voucher will be £220. KidzRunz will then top up an additional 10% (£22) on the Activity Voucher, making the total amount £242).
-					</p>
+					</p> {% endcomment %}
 				</p>
-				<a href="" class="underline">Learn More</a>
+				<a href="{% url 'website:activities' %}" class="underline">Learn More</a>
 			</div>
-			<div data-aos="fade-left" class="sm:w-1/3 relative mt-10 sm:mt-0">
+			<div data-aos="fade-left" class="sm:w-1/2 relative mt-10 sm:mt-0">
 				<div style="background: #23BDEE;" class="floating w-24 h-24 absolute rounded-lg z-0 -top-3 -left-3"></div>
-				<img class="rounded-xl z-40 relative" src="{% static 'images/cute-astronaut-boy-riding-space-rocket.png' %}" alt="">
-				<button class="bg-white w-14 h-14 rounded-full flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out z-50">
+				<img class="rounded-xl h-96 object-cover w-full z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
+				{% comment %} <button class="bg-white w-14 h-14 rounded-full flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out z-50">
 					<svg class="w-5 h-5 ml-1" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M22.5751 12.8097C23.2212 13.1983 23.2212 14.135 22.5751 14.5236L1.51538 27.1891C0.848878 27.5899 5.91205e-07 27.1099 6.25202e-07 26.3321L1.73245e-06 1.00123C1.76645e-06 0.223477 0.848877 -0.256572 1.51538 0.14427L22.5751 12.8097Z" fill="#23BDEE"/>
 					</svg>
-				</button>
+				</button> {% endcomment %}
 				<div class="bg-blue-400 w-40 h-40 floating absolute rounded-lg z-10 -bottom-3 -right-3"></div>
 			</div>
 		</div>
 
+		<a href="{% url 'website:activities' %}" data-aos="flip-up" class="px-5 py-3 md:w-1/4 text-center border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">See our activity packs</a>
+
 		<div class="md:flex mt-40 md:space-x-10 items-start">
-			<div data-aos="fade-down" class="md:w-7/12 relative">
+			<div data-aos="fade-down" class="md:w-1/2 relative">
 				<div style="background: #33EFA0" class="w-32 h-32 rounded-full absolute z-0 left-4 -top-12 animate-pulse"></div>
 				<div style="background: #33D9EF;" class="w-5 h-5 rounded-full absolute z-0 left-36 -top-12 animate-ping"></div>
-				<img class="relative z-50 floating" src="{% static 'images/cute-astronaut-sitting-on-planet.png' %}" alt="">
+				<img class="rounded-xl h-96 object-cover w-full z-50 floating" src="{% static 'images/activities-2.jpg' %}" alt="">
 				<div style="background: #5B61EB;" class="w-36 h-36 rounded-full absolute z-0 right-16 -bottom-1 animate-pulse"></div>
 				<div style="background: #F56666;" class="w-5 h-5 rounded-full absolute z-0 right-52 bottom-1 animate-ping"></div>
 			</div>
-			<div data-aos="fade-down" class="md:w-5/12 mt-20 md:mt-0 text-gray-500">
+			<div data-aos="fade-down" class="md:w-1/2 mt-20 md:mt-0 text-gray-500">
 				<h1 class="text-2xl font-semibold text-green-600 lg:pr-30">Some past <span class="text-blue-400">Activities</span> include!</h1>
 				<div class="flex items-center space-x-5 my-5">
 					<div class="flex-shrink bg-white shadow-lg rounded-full p-3 flex items-center justify-center">
@@ -304,7 +214,7 @@
 			</div>
 		</div>
 
-		
+{% comment %} 		
 		<div data-aos="flip-down" class="text-center max-w-screen-md mx-auto mt-28">
 			<h1 class="text-3xl font-bold mb-4">Our<span class="text-blue-400"> Packages</span></h1>
 			<p class="text-gray-500">
@@ -348,9 +258,9 @@
 			</div>
 		</div>
 		{% endif %}
-		{% endfor %}
+		{% endfor %} {% endcomment %}
 
-		<button data-aos="flip-up" class="px-5 py-3 border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">See more features</button>
+		
 
 		<!-- INTEGRATIONS -->
 		{% comment %} <div class="mt-24 flex flex-col md:flex-row items-start md:space-x-10">
@@ -447,37 +357,5 @@
 	</div>
 	<!-- .container -->
 
-	<footer class="mt-32" style="background-color: rgba(37, 38, 65, 1);">
-		<div class="max-w-lg mx-auto">
-			<div class="flex py-12 justify-center text-white items-center px-20 sm:px-10">
-				<div class="relative">
-					<h1 class="font-bold text-transparent text-xl pr-5 relative z-50">Kidzrunz</h1>
-					<img src="{% static 'images/logo.png' %}" alt="" class="h-30 z-40 absolute -top-14 -left-3">
-					{% comment %} <svg class="w-11 h-11 absolute -top-2 -left-3 z-40" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M35.9645 2.94975C37.9171 0.997129 41.0829 0.997127 43.0355 2.94975L76.0502 35.9645C78.0029 37.9171 78.0029 41.0829 76.0503 43.0355L43.0355 76.0502C41.0829 78.0029 37.9171 78.0029 35.9645 76.0503L2.94975 43.0355C0.997129 41.0829 0.997127 37.9171 2.94975 35.9645L35.9645 2.94975Z" stroke="#26C1F2" stroke-width="2"/>
-					</svg> {% endcomment %}
-				</div>
-				<span class="border-l border-gray-500 text-sm pl-5 py-2 font-semibold">Children’s Activity-based Mentoring and Support services (CAMS)</span>
-			</div>
-			<div class="text-center pb-16 pt-5">
-				<label class="text-gray-300 font-semibold">Subscribe to get our Newsletter</label>
-				<div class="px-5 sm:px-0 flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0 justify-center mt-3">
-					<input type="email" placeholder="Your Email" class="rounded-full py-2 pl-5 bg-transparent border border-gray-400">
-					<button type="submit" class="text-white w-40 sm:w-auto mx-auto sm:mx-0 font-semibold px-5 py-2 rounded-full" style="background: linear-gradient(105.5deg, #545AE7 19.57%, #393FCF 78.85%);">Subscribe</button>
-				</div>
-			</div>
-			<div class="flex items-center pb-10 text-gray-400 text-sm justify-center">
-				<a href="" class="pr-3">Support</a>
-				<a href="" class="border-l border-gray-400 px-3">Privacy</a>
-				<a href="" class="border-l border-gray-400 pl-3">Terms & Conditions</a>
-			</div>
-		</div>
-	</footer>
-
-	<!-- AOS init -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-    	AOS.init();
-    </script>
-</body>
-</html>
+{% endblock contentarea %}
+	

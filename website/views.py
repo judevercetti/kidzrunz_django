@@ -11,4 +11,21 @@ def index(request):
         'services': services,
         'packages': packages
     }
-    return render(request, "index.html", context=context)
+    return render(request, "website/index.html", context=context)
+
+
+def aboutus(request):
+    return render(request, "website/about-us.html")
+
+
+def gallery(request):
+    return render(request, "website/gallery.html")
+
+
+def activities(request):
+    packages = Package.objects.all()
+
+    context = {
+        'packages': packages
+    }
+    return render(request, "website/activities.html", context)

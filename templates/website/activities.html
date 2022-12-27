@@ -1,0 +1,66 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+
+<div class="bg-cream">
+  <div class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
+    <!--Left Col-->
+    <div class="flex w-full justify-center lg:pt-24 text-center lg:text-left mb-5 md:mb-0">
+      <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-center text-5xl font-bold leading-tight text-green-600"><span class="text-blue-400">Activities</span></h1>
+    </div>
+  </div>
+</div>
+
+<!-- container -->
+
+<!-- lorem -->
+<div class="mt-16 px-5 md:px-20">
+  <div class="text-gray-500">
+    <p>Each parent/carer has the option to top up their KidzRunz Activity voucher to cover any further costs for activities booked for each session. This will be an additional top up to the £20 that is included in the Pricing Package (as explained above).</p>
+    <p class="py-5">Please note that money on an Activity Voucher should cover the total costs of any activity planned with your child (please note that this is at your discretion, there are many fun non-monetary activities that your child can enjoy). It is at your discretion how much money you top up on your voucher. Please ensure you top up enough money prior to the start of each session for any planned activities you have booked in with us.</p>
+    <p>Money topped up on each voucher can be used up to 1 year after initial top up and can be transferred to an existing or new user of KidzRunz where desired, provided that it is transferred within the 1-year period of which it is valid.</p>
+    <p class="py-5">OFFER: KidzRunz will add an additional 10% to any KidzRunz Activity Voucher purchased with a Pricing Package.</p>
+    <p>(E.G. If purchasing a pricing package and a £200 KidzRunz Activity Voucher in the same transaction, the total money on the Activity Voucher will be £220. KidzRunz will then top up an additional 10% (£22) on the Activity Voucher, making the total amount £242).</p>
+  </div>
+
+  <div data-aos="flip-down" class="text-center max-w-screen-md mx-auto mt-28">
+    <h1 class="text-3xl font-bold mb-4">Our<span class="text-blue-400"> Packages</span></h1>
+    <p class="text-gray-500">You can purchase a certain number of hours which can be used over the space of 3 months. Each booking is inclusive of £20 which will go onto a KidzRunz Activity Voucher used towards the total cost of any activity booked with your child during a session.</p>
+    <p class="text-gray-500 mt-4">E.G. If making a 5-hour booking for the total cost of £175, £20 will go towards a KidzRunz Activity Voucher covering the total cost of a booked activity for your child to enjoy with their Mentor. £155 remaining balance will be used to cover the total cost of the 5 hours booked).</p>
+  </div>
+  {% for package in packages %} {% if forloop.counter|divisibleby:2 %}
+  <div class="flex flex-col md:flex-row items-center md:space-x-10 mt-16">
+    <div data-aos="fade-right" class="md:w-1/2 lg:pl-14">
+      <h1 class="text-green-600 font-semibold text-3xl lg:pr-40"><span class="text-blue-400">{{ package.name }}</span> Activity Pack</h1>
+      <div class="flex items-center space-x-20 mb-5">
+        <span class="border border-gray-300 w-14 absolute"></span>
+        <h1 class="text-gray-400 tracking-widest text-sm">{{ package.duration }} hours @ £{{ package.price }}</h1>
+      </div>
+      <p class="text-gray-500 my-4 lg:pr-32">{{ package.description|linebreaks }}</p>
+      <br />
+      <a href="{% url 'console:appointment' %}" class="px-5 py-3 border border-blue-400 text-blue-400 font-medium my-4 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full">Book Now</a>
+    </div>
+    <img data-aos="fade-left" class="md:w-1/2" src="media/{{ package.image }}" />
+  </div>
+
+  {% else %}
+
+  <div class="mt-20 flex flex-col-reverse md:flex-row items-center md:space-x-10">
+    <div data-aos="fade-right" class="md:w-6/12">
+      <img class="md:w-11/12" src="media/{{ package.image }}" />
+    </div>
+    <div data-aos="fade-left" class="md:w-6/12 md:transform md:-translate-y-20">
+      <h1 class="font-semibold text-green-600 text-3xl lg:pr-40"><span class="text-blue-400">{{ package.name }}</span> Activity Pack</h1>
+      <div class="flex items-center space-x-20 mb-5">
+        <span class="border border-gray-300 w-14 absolute"></span>
+        <h1 class="text-gray-400 tracking-widest text-sm">{{ package.duration }} hours @ £{{ package.price }}</h1>
+      </div>
+      <p class="text-gray-500 my-5 lg:pr-52">{{ package.description|linebreaks }}</p>
+      <br />
+      <a href="{% url 'console:appointment' %}" class="mt-5 px-5 py-3 border border-blue-400 text-blue-400 font-medium my-4 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full">Book Now</a>
+    </div>
+  </div>
+  {% endif %} {% endfor %}
+</div>
+
+<!-- .container -->
+
+{% endblock contentarea %}
