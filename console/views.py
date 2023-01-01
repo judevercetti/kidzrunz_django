@@ -82,11 +82,13 @@ class MakeAppointment(LoginRequiredMixin, View):
 
 
 
-class Sessions(View):
+class Sessions(LoginRequiredMixin, View):
     template_name = "console/admin/sessions.html"
 
     def get(self, request):
-        return render(request, self.template_name)
+        appointments = Appointment.objects.all()
+        context = {'appointments': appointments}
+        return render(request, self.template_name, context=context)
 
 
 class MakePaymentView(LoginRequiredMixin, View):
@@ -165,3 +167,19 @@ class MakePaymentView(LoginRequiredMixin, View):
                 print(error.code, error.message)
 
         return JsonResponse({'success': success})
+
+
+class Home(LoginRequiredMixin, View):
+    template_name = "console/admin/dashboard.html"
+
+    def get(self, request):
+        appointments = Appointment.objects.all()
+        context = {'appointments': appointments}
+        return render(request, self.template_name, context=context)
+
+    def post(self, request):
+        appointment = Appointment.objects.get(
+            pk=request.POST.get('appointment_id'))
+        appointment.status = Appointment.Status.CANCELLED
+        appointment.save()
+        return redirect('console:dashboard')

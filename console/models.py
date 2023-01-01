@@ -33,5 +33,6 @@ class BraintreeCustomer(models.Model):
 
 
 class BraintreeTransaction(models.Model):
+    customer = models.ForeignKey(BraintreeCustomer, on_delete=models.CASCADE, related_name='transactions')
     appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name='transactions')
     transaction_id = models.CharField(max_length=100)

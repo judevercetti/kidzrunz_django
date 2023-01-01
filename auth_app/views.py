@@ -89,6 +89,10 @@ class Signup(View):
 
 
         login(request, user)
+
+        if user.is_staff:
+            return redirect("console:home")
+
         if request.GET.get("next"):
             return redirect(request.GET.get("next"))
 
