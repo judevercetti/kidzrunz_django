@@ -3,7 +3,6 @@
 <div class="container px-6 mx-auto grid">
   <div class="flex justify-between my-6">
     <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200">Sessions</h2>
-    <a href="{% url 'console:appointment' %}" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">Make Appointment</a>
   </div>
   <!-- CTA -->
   {% comment %}
@@ -105,7 +104,7 @@
                   <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                 </div>
                 <div>
-                  <p class="font-semibold">{{appointment.user}}</p>
+                  <p class="font-semibold capitalize">{{appointment.user}}</p>
                 </div>
               </div>
             </td>
@@ -120,8 +119,8 @@
               <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:bg-red-700 dark:text-red-100"> {{appointment.get_status_display}} </span>
               {% endif %}
             </td>
-            <td class="px-4 py-3 text-sm">{{appointment.datetime|date}}</td>
-            <td class="px-4 py-3 text-sm">{{appointment.datetime|time}}</td>
+            <td class="px-4 py-3 text-sm uppercase">{{appointment.datetime|date}}</td>
+            <td class="px-4 py-3 text-sm uppercase">{{appointment.datetime|time}}</td>
             <td class="px-4 py-3 text-sm">
               <div class="flex space-x-2">
               {% comment %} {{appointment.transactions.all}} {% endcomment %}

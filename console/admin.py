@@ -15,4 +15,4 @@ class BraintreeCustomerAdmin(admin.ModelAdmin):
 
 @admin.register(BraintreeTransaction)
 class BraintreeTransactionAdmin(admin.ModelAdmin):
-    list_display = ('appointment', 'transaction_id')
+    list_display = ('customer', 'amount', 'transaction_id')

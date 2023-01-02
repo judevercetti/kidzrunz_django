@@ -2,9 +2,11 @@ from django.contrib import admin
 
 from auth_app.models import Profile, User
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import Group
 
 # Register your models here.
 
+admin.site.unregister(Group)
 
 class ProfileInline(admin.StackedInline):
     model = Profile

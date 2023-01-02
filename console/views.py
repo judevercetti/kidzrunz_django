@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import View
 from django.contrib import messages
+from django.db.models import Sum
 from django.utils.translation import gettext as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 from auth_app.models import Profile, User
@@ -20,16 +21,18 @@ class Dashboard(LoginRequiredMixin, View):
     template_name = "console/user/dashboard.html"
 
     def get(self, request):
-        appointments = Appointment.objects.filter(user=request.user).order_by('-created_on')
+        appointments = Appointment.objects.filter(
+            user=request.user).order_by('-created_on')
         context = {'appointments': appointments}
         return render(request, self.template_name, context=context)
 
     def post(self, request):
-        appointment = Appointment.objects.get(pk=request.POST.get('appointment_id'))
+        appointment = Appointment.objects.get(
+            pk=request.POST.get('appointment_id'))
         appointment.status = Appointment.Status.CANCELLED
         appointment.save()
         return redirect('console:dashboard')
-        
+
 
 class ProfileView(View):
     template_name = "console/user/profile.html"
@@ -56,6 +59,7 @@ class ProfileView(View):
         user.save()
         return redirect('console:profile')
 
+
 class MakeAppointment(LoginRequiredMixin, View):
     login_url = 'login'
     template_name = "console/user/make_appointment.html"
@@ -79,16 +83,6 @@ class MakeAppointment(LoginRequiredMixin, View):
             print(form.errors)
             print('invalid')
             return redirect('console:appointment')
-
-
-
-class Sessions(LoginRequiredMixin, View):
-    template_name = "console/admin/sessions.html"
-
-    def get(self, request):
-        appointments = Appointment.objects.all()
-        context = {'appointments': appointments}
-        return render(request, self.template_name, context=context)
 
 
 class MakePaymentView(LoginRequiredMixin, View):
@@ -160,7 +154,7 @@ class MakePaymentView(LoginRequiredMixin, View):
                 appointment_id=appointment_id, transaction_id=result.transaction.id)
             if not transaction:
                 print('transaction was not saved to db')
-            success=True
+            success = True
         else:
             print("Transaction failed:")
             for error in result.errors.deep_errors:
@@ -169,17 +163,48 @@ class MakePaymentView(LoginRequiredMixin, View):
         return JsonResponse({'success': success})
 
 
-class Home(LoginRequiredMixin, View):
+class AdminHomeView(LoginRequiredMixin, View):
     template_name = "console/admin/dashboard.html"
+
+    def get(self, request):
+        appointments = Appointment.objects.filter(status=Appointment.Status.APPROVED)
+        total_clients = User.objects.count()
+        total_sessions = Appointment.objects.count()
+        active_sessions = Appointment.objects.filter(status=Appointment.Status.APPROVED).count()
+        total_amount = BraintreeTransaction.objects.aggregate(
+            amount=Sum('amount'))['amount']
+        context = {
+            'appointments': appointments,
+            'total_clients': total_clients,
+            'total_sessions': total_sessions,
+            'active_sessions': active_sessions,
+            'total_amount': total_amount,
+        }
+        return render(request, self.template_name, context=context)
+
+
+class SessionsView(LoginRequiredMixin, View):
+    template_name = "console/admin/sessions.html"
 
     def get(self, request):
         appointments = Appointment.objects.all()
         context = {'appointments': appointments}
         return render(request, self.template_name, context=context)
 
-    def post(self, request):
-        appointment = Appointment.objects.get(
-            pk=request.POST.get('appointment_id'))
-        appointment.status = Appointment.Status.CANCELLED
-        appointment.save()
-        return redirect('console:dashboard')
+
+class ReportsView(LoginRequiredMixin, View):
+    template_name = "console/admin/sessions.html"
+
+    def get(self, request):
+        appointments = Appointment.objects.all()
+        context = {'appointments': appointments}
+        return render(request, self.template_name, context=context)
+
+
+class TransactionsView(LoginRequiredMixin, View):
+    template_name = "console/admin/transactions.html"
+
+    def get(self, request):
+        transactions = BraintreeTransaction.objects.all()
+        context = {'transactions': transactions}
+        return render(request, self.template_name, context=context)
