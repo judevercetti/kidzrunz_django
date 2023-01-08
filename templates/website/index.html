@@ -1,6 +1,6 @@
 {% extends './base.html' %} {% load static %} {% block contentarea %}
 
-	<div class="" style="background: url({% static 'images/space-bg.jpg'%}); background-size: cover">
+	<div class="bg-fixed" style="background-image: url({% static 'images/space-bg.jpg'%}); background-size: cover">
 		<div class="bg-gradient-to-b from-blue-900 px-8 mx-auto flex flex-col lg:flex-row items-start">
 			<!--Left Col-->
 			<div class="flex flex-col  w-full lg:w-6/12 justify-center lg:pt-24 items-start text-center lg:text-left mb-5 md:mb-0">
@@ -81,7 +81,7 @@
 	</div>
 
 	<!-- container -->
-	<div class="container px-4 lg:px-4 mx-auto max-w-screen-xl text-gray-700 overflow-x-hidden">
+	<div class="mx-auto text-gray-700 overflow-x-hidden">
 
 		<!-- trusted by -->
 		{% comment %} <div class="max-w-4xl mx-auto">
@@ -125,11 +125,43 @@
 			</div>
 		</div>
 
-		<div class="sm:flex items-center sm:space-x-8 mt-36 md:mx-20" >
-			<div data-aos="fade-right" class="sm:w-1/2 relative">
-				<div class="bg-blue-400 rounded-full absolute w-12 h-12 z-0 -top-3 animate-pulse"></div>
-				<h1 class="font-semibold text-2xl relative z-50 text-center text-green-600 lg:pr-10">Ativities <span class="text-blue-400">you can do with Kidzrunz</span></h1>
-				<p class="py-5 lg:pr-32">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-5 group mt-36 md:mx-20">
+			{% for i in '1,2,4' %}
+			<div class="bg-white  text-center w-full rounded-xl aspect-square items-center">
+				<img class="rounded-xl h-52 mb-2 shadow-sm object-cover w-full z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
+				<a href="#" class="text-xl border-b-2 text-blue-500 capitalize">the title</a>
+				<p class="text-base py-3">short description</p>
+			</div>
+			{% endfor %}
+		</div>
+
+		<div class="px-20 py-10 bg-gradient-to-r from-green-500 to-blue-500 w-full mt-28 text-white">
+			<h1 class="capitalize text-3xl">Lorem ipsum</h1>
+			<p class="text-base mb-8 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit.</p>
+			<a href="{% url 'console:appointment' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-green-400">LEARN MORE </a>
+		</div>
+
+		<div class="bg-fixed" style="background-image: url({% static 'images/space-bg.jpg'%});">
+			<div class="px-20 py-10 bg-opacity-50 bg-blue-500 w-full mt-28 text-white text-center">
+				<p class="text-3xl mb-8 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit.</p>
+			</div>
+		</div>
+
+		<div class="flex px-20 space-x-10 bg-gradient-to-l from-green-500 to-blue-500 w-full mt-28 text-white">
+			<img class="h-96 object-cover w-1/2 z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
+			<div class="w-1/2 my-auto">
+				<h1 class="capitalize text-3xl">Lorem ipsum</h1>
+				<p class="text-base mb-8 mt-3">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit. Proin efficitur, quam a lobortis consectetur, lorem velit tristique nisi, et venenatis metus lorem vitae metus. Proin neque arcu, volutpat sit amet dolor quis, feugiat tristique diam. Pellentesque fermentum ipsum sit amet odio porta, eget placerat ante rutrum
+				</p>
+				<a href="{% url 'console:appointment' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-blue-400">LEARN MORE </a>
+			</div>
+		</div>
+
+		<div class="bg-fixed h-screen" style="background-image: url({% static 'images/bg-activities-2.jpg'%});">
+			<div class="px-20 py-10 bg-opacity-70 bg-blue-500 w-1/2 h-full mt-28 text-white">
+				<h1 class="font-semibold text-3xl relative z-50  lg:pr-10">Activities you can do with Kidzrunz</h1>
+				<p class="py-5 lg:pr-32 text-base">
 					<p>
 						Each parent/carer has the option to top up their KidzRunz Activity voucher to cover any further costs for activities booked for each session. This will be an additional top up to the £20 that is included in the Pricing Package (as explained above). 
 					</p>
@@ -148,21 +180,11 @@
 				</p>
 				<a href="{% url 'website:activities' %}" class="underline">Learn More</a>
 			</div>
-			<div data-aos="fade-left" class="sm:w-1/2 relative mt-10 sm:mt-0">
-				<div style="background: #23BDEE;" class="floating w-24 h-24 absolute rounded-lg z-0 -top-3 -left-3"></div>
-				<img class="rounded-xl h-96 object-cover w-full z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
-				{% comment %} <button class="bg-white w-14 h-14 rounded-full flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out z-50">
-					<svg class="w-5 h-5 ml-1" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M22.5751 12.8097C23.2212 13.1983 23.2212 14.135 22.5751 14.5236L1.51538 27.1891C0.848878 27.5899 5.91205e-07 27.1099 6.25202e-07 26.3321L1.73245e-06 1.00123C1.76645e-06 0.223477 0.848877 -0.256572 1.51538 0.14427L22.5751 12.8097Z" fill="#23BDEE"/>
-					</svg>
-				</button> {% endcomment %}
-				<div class="bg-blue-400 w-40 h-40 floating absolute rounded-lg z-10 -bottom-3 -right-3"></div>
-			</div>
 		</div>
 
 		<a href="{% url 'website:activities' %}" data-aos="flip-up" class="px-5 py-3 md:w-1/4 text-center border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">See our activity packs</a>
 
-		<div class="md:flex mt-40 md:space-x-10 items-start">
+		<div class="md:flex mt-40 md:space-x-10 items-start md:mx-20">
 			<div data-aos="fade-down" class="md:w-1/2 relative">
 				<div style="background: #33EFA0" class="w-32 h-32 rounded-full absolute z-0 left-4 -top-12 animate-pulse"></div>
 				<div style="background: #33D9EF;" class="w-5 h-5 rounded-full absolute z-0 left-36 -top-12 animate-ping"></div>
@@ -170,7 +192,7 @@
 				<div style="background: #5B61EB;" class="w-36 h-36 rounded-full absolute z-0 right-16 -bottom-1 animate-pulse"></div>
 				<div style="background: #F56666;" class="w-5 h-5 rounded-full absolute z-0 right-52 bottom-1 animate-ping"></div>
 			</div>
-			<div data-aos="fade-down" class="md:w-1/2 mt-20 md:mt-0 text-gray-500">
+			<div data-aos="fade-down" class="md:w-1/2 mt-20 md:my-auto text-gray-500">
 				<h1 class="text-2xl font-semibold text-green-600 lg:pr-30">Some past <span class="text-blue-400">Activities</span> include!</h1>
 				<div class="flex items-center space-x-5 my-5">
 					<div class="flex-shrink bg-white shadow-lg rounded-full p-3 flex items-center justify-center">
@@ -214,7 +236,7 @@
 			</div>
 		</div>
 
-{% comment %} 		
+		{% comment %} 		
 		<div data-aos="flip-down" class="text-center max-w-screen-md mx-auto mt-28">
 			<h1 class="text-3xl font-bold mb-4">Our<span class="text-blue-400"> Packages</span></h1>
 			<p class="text-gray-500">
@@ -278,36 +300,14 @@
 			</div>
 		</div> {% endcomment %}
 
-		<!-- TESTIMONIAL -->
-		<div class="mt-24 flex flex-col-reverse md:flex-row items-start md:space-x-10">
-			<div data-aos="zoom-in-right" class="md:w-5/12">
-				<div class="flex items-center space-x-20 mb-5">
-					<span class="border border-gray-300 w-14 absolute"></span>
-					<h1 class="text-gray-400 tracking-widest text-sm">TESTIMONIAL</h1>
-				</div>
-				<h1 class="font-semibold text-green-600 text-2xl lg:pr-40">What They Say?</h1>
-				<p class="text-gray-500 my-5 lg:pr-36">Kidzrunz has got more than 100k positive ratings from our users around the world.</p>
-				<p class="text-gray-500 my-5 lg:pr-36">Some of the students and teachers were greatly helped by the Kidzrunz.</p>
-				<p class="text-gray-500 my-5 lg:pr-36">Are you too? Please give your assessment</p>
-				<button class="flex items-center space-x-3 pl-3 border-b border-l border-t border-blue-400 text-blue-400 font-medium my-4 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full">
-					<span>Write your assessment</span>
-					<div class="border border-blue-400 h-14 w-14 rounded-full flex items-center justify-center">
-						<svg class="w-5 h-5" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M25.7071 8.70711C26.0976 8.31658 26.0976 7.68342 25.7071 7.2929L19.3431 0.928934C18.9526 0.538409 18.3195 0.538409 17.9289 0.928934C17.5384 1.31946 17.5384 1.95262 17.9289 2.34315L23.5858 8L17.9289 13.6569C17.5384 14.0474 17.5384 14.6805 17.9289 15.0711C18.3195 15.4616 18.9526 15.4616 19.3431 15.0711L25.7071 8.70711ZM-8.74228e-08 9L25 9L25 7L8.74228e-08 7L-8.74228e-08 9Z" fill="#F48C06"/>
-						</svg>
-					</div>
-				</button>
-			</div>
-			<div data-aos="zoom-in-left" class="md:w-7/12">
-				<img class="md:w-10/12 mx-auto" src="https://mhaecal.github.io/frontend/img/testimonials.png">
-			</div>
-		</div>
+
 		<!-- Latest News and Resources -->
+		<div class="bg-gray-50 py-5 mt-36">
 		<div data-aos="zoom-in" class="mt-16 text-center" id="gallery">
 			<h1 class="text-green-600 text-2xl font-semibold">Latest News and Gallery</h1>
 			<p class="text-gray-500 my-5">See the developments that have occurred to Kidzrunz</p>
 		</div>
-		<div data-aos="zoom-in-up" class="my-14 flex flex-col lg:flex-row lg:space-x-20">
+		<div data-aos="zoom-in-up" class="my-14 flex flex-col lg:flex-row lg:space-x-20 md:mx-20">
 			<div class="lg:w-6/12">
 				<img class="w-full mb-6" src="https://www.keraflo.co.uk/wp-content/uploads/2019/01/GG-Wembley-Stadium-Case-Image.jpg">
 				<span class="bg-green-300 text-green-600 font-semibold px-4 py-px text-sm rounded-full">30th March</span>
@@ -352,6 +352,33 @@
 						<p class="text-gray-500 my-2 sm:my-4 text-xs sm:text-md">Tailored to each child’s needs, values, family routine and lifestyle we make...</p>
 					</div>
 				</div>
+			</div>
+		</div>
+		</div>
+
+		
+		<!-- TESTIMONIAL -->
+		<div class="mt-24 flex flex-col-reverse md:flex-row items-start md:space-x-10 md:mx-20">
+			<div data-aos="zoom-in-right" class="md:w-5/12">
+				<div class="flex items-center space-x-20 mb-5">
+					<span class="border border-gray-300 w-14 absolute"></span>
+					<h1 class="text-gray-400 tracking-widest text-sm">TESTIMONIAL</h1>
+				</div>
+				<h1 class="font-semibold text-green-600 text-2xl lg:pr-40">What They Say?</h1>
+				<p class="text-gray-500 my-5 lg:pr-36">Kidzrunz has got more than 100k positive ratings from our users around the world.</p>
+				<p class="text-gray-500 my-5 lg:pr-36">Some of the students and teachers were greatly helped by the Kidzrunz.</p>
+				<p class="text-gray-500 my-5 lg:pr-36">Are you too? Please give your assessment</p>
+				<button class="flex items-center space-x-3 pl-3 border-b border-l border-t border-blue-400 text-blue-400 font-medium my-4 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full">
+					<span>Write your assessment</span>
+					<div class="border border-blue-400 h-14 w-14 rounded-full flex items-center justify-center">
+						<svg class="w-5 h-5" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M25.7071 8.70711C26.0976 8.31658 26.0976 7.68342 25.7071 7.2929L19.3431 0.928934C18.9526 0.538409 18.3195 0.538409 17.9289 0.928934C17.5384 1.31946 17.5384 1.95262 17.9289 2.34315L23.5858 8L17.9289 13.6569C17.5384 14.0474 17.5384 14.6805 17.9289 15.0711C18.3195 15.4616 18.9526 15.4616 19.3431 15.0711L25.7071 8.70711ZM-8.74228e-08 9L25 9L25 7L8.74228e-08 7L-8.74228e-08 9Z" fill="#F48C06"/>
+						</svg>
+					</div>
+				</button>
+			</div>
+			<div data-aos="zoom-in-left" class="md:w-7/12">
+				<img class="md:w-10/12 mx-auto" src="https://mhaecal.github.io/frontend/img/testimonials.png">
 			</div>
 		</div>
 	</div>
