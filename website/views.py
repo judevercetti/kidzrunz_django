@@ -7,9 +7,73 @@ def index(request):
     services = Service.objects.all()
     packages = Package.objects.all()
 
+    cards = [
+        {
+            'title': 'About us',
+            'description': '',
+            'image': '',
+            'link': '/about'
+        },
+        {
+            'title': 'Packages',
+            'description': '',
+            'image': '',
+            'link': '/activities'
+        },
+        {
+            'title': 'Career tips & mindfulness',
+            'description': '',
+            'image': '',
+            'link': ''
+        },
+        {
+            'title': 'CBT & DBT therapy',
+            'description': '',
+            'image': '',
+            'link': ''
+        },
+        {
+            'title': 'Parents stories',
+            'description': '',
+            'image': '',
+            'link': ''
+        },
+        {
+            'title': 'Referrals',
+            'description': '',
+            'image': '',
+            'link': ''
+        },
+        {
+            'title': 'Events and activities',
+            'description': '',
+            'image': '',
+            'link': '/activities'
+        },
+        {
+            'title': 'Sponsors and donate',
+            'description': '',
+            'image': '',
+            'link': ''
+        },
+        {
+            'title': 'Gallery',
+            'description': '',
+            'image': '',
+            'link': '/gallery'
+        },
+        {
+            'title': 'Contact details',
+            'description': '',
+            'image': '',
+            'link': '/about'
+        },
+    ]
+
     context = {
         'services': services,
-        'packages': packages
+        'packages': packages,
+        'link_cards': cards
     }
     return render(request, "website/index.html", context=context)
 
