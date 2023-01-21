@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from website.models import Package, Service
+from website.models import Gallery, Package, Service
 
 # Register your models here.
 
@@ -11,3 +11,7 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Package)
 class PackageAdmin(admin.ModelAdmin):
     list_display = ('name', 'duration', 'price')
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'image')

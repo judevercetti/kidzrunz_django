@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from website.models import Package, Service
+from website.models import Gallery, Package, Service
 
 # Create your views here.
 def index(request):
@@ -83,7 +83,10 @@ def aboutus(request):
 
 
 def gallery(request):
-    return render(request, "website/gallery.html")
+    context = {
+        'gallery': Gallery.objects.all(),
+    }
+    return render(request, "website/gallery.html", context=context)
 
 
 def activities(request):
