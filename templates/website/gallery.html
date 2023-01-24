@@ -15,8 +15,8 @@
 <div class="mt-16">
   <div data-aos="fade-up" class="grid grid-cols-1 md:grid-cols-3 gap-5 justify-center mx-5 md:mx-20">
     {% for i in gallery %}
-    <div class="relative w-full h-full">
-      <img class="rounded-lg" src="/media/{{i.image}}" alt="" />
+    <div class="relative w-full h-80">
+      <img class="rounded-lg h-full w-full object-cover" src="/media/{{i.image}}" alt="" />
       <div class="absolute bg-black bg-opacity-20 bottom-0 left-0 right-0 w-full h-full rounded-2xl">
         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <h1 class="uppercase text-white font-bold text-center text-sm lg:text-xl mb-3">{{i.title|default_if_none:''}}</h1>

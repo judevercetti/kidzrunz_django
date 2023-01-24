@@ -97,12 +97,12 @@
 		</div> {% endcomment %}
 
 		<!-- All-In-One Cloud Software. -->
-		<div data-aos="flip-up" class="max-w-xl mx-auto text-center mt-24">
+		{% comment %} <div data-aos="flip-up" class="max-w-xl mx-auto text-center mt-24">
 			<h1 class="font-bold text-green-600 my-3 text-2xl">Our <span class="text-blue-400">Services</span></h1>
 			<p class="leading-relaxed text-gray-500">Our services include (but are not limited to).</p>
-		</div>
+		</div> {% endcomment %}
 		<!-- card -->
-		<div class="px-3 md:lg:xl:px-40 bg-opacity-10">
+		{% comment %} <div class="px-3 md:lg:xl:px-40 bg-opacity-10">
 			<div class="grid grid-cols-1 md:grid-cols-3 group">
 				{% for service in services %}
 				<div data-aos="zoom-in-up" class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50">
@@ -123,7 +123,7 @@
 				<p class=" text-white"> <span class="text-4xl font-medium">Still Confused ?</span> <br> <span class="text-lg">Book A Free Consultation Today ! </span></p>
 				<a href="{% url 'console:appointment' %}" class="px-5 py-3 font-medium  text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-blue-400">BOOK AN APPOINTMENT </a>
 			</div>
-		</div>
+		</div> {% endcomment %}
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-5 group mt-36 mx-5 md:mx-20">
 			{% for link_card in link_cards %}
@@ -141,11 +141,26 @@
 			<a href="{% url 'console:appointment' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-green-400">LEARN MORE </a>
 		</div>
 
-		<div class="bg-fixed" style="background-image: url({% static 'images/space-bg.jpg'%});">
-			<div class="px-10 md:px-20 py-10 bg-opacity-50 bg-blue-500 w-full mt-28 text-white text-center">
-				<p class="text-3xl mb-8 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit.</p>
-			</div>
-		</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5 group mt-36 mx-5 md:mx-20">
+			{% for link_card in '123456' %}
+				<div class="flex space-x-5">
+					<div class="w-4/12">
+						<div class="relative">
+							<img class="rounded-xl w-full" src="https://mhaecal.github.io/frontend/img/children-laptop.png">
+							<span class="absolute bottom-2 right-2 bg-green-300 text-green-600 font-semibold px-4 py-px text-sm rounded-full hidden sm:block">Yesterday</span>
+						</div>
+					</div>
+					<div class="w-8/12">
+						<a href="#" class="text-sm sm:text-lg font-semibold text-blue-600 hover:underline">Teaching children/youth how to prepare food</a>
+						<p class="text-gray-500 my-2 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit.</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>	
+
+		<a href="{% url 'website:activities' %}" data-aos="flip-up" class="px-5 py-3 md:w-1/4 text-center border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">Read more</a>
+
+
 
 		<div class="flex flex-col md:flex-row md:px-20 space-y-5 md:space-x-10 bg-gradient-to-l from-green-500 to-blue-500 w-full mt-28 text-white">
 			<img class="h-96 object-cover w-full md:w-1/2 z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
@@ -184,7 +199,7 @@
 
 		<a href="{% url 'website:activities' %}" data-aos="flip-up" class="px-5 py-3 md:w-1/4 text-center border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">See our activity packs</a>
 
-		<div class="md:flex mt-40 md:space-x-10 items-start mx-5 md:mx-20">
+		{% comment %} <div class="md:flex mt-40 md:space-x-10 items-start mx-5 md:mx-20">
 			<div data-aos="fade-down" class="md:w-1/2 relative">
 				<div style="background: #33EFA0" class="w-32 h-32 rounded-full absolute z-0 left-4 -top-12 animate-pulse"></div>
 				<div style="background: #33D9EF;" class="w-5 h-5 rounded-full absolute z-0 left-36 -top-12 animate-ping"></div>
@@ -234,7 +249,7 @@
 					</p>
 				</div>
 			</div>
-		</div>
+		</div> {% endcomment %}
 
 		{% comment %} 		
 		<div data-aos="flip-down" class="text-center max-w-screen-md mx-auto mt-28">
@@ -301,64 +316,23 @@
 		</div> {% endcomment %}
 
 
-		<!-- Latest News and Resources -->
-		<div class="bg-gray-50 py-5 mt-36">
-		<div data-aos="zoom-in" class="mt-16 text-center" id="gallery">
-			<h1 class="text-green-600 text-2xl font-semibold">Latest News and Gallery</h1>
-			<p class="text-gray-500 my-5">See the developments that have occurred to Kidzrunz</p>
-		</div>
-		<div data-aos="zoom-in-up" class="my-14 flex flex-col lg:flex-row lg:space-x-20 mx-5 md:mx-20">
-			<div class="lg:w-6/12">
-				<img class="w-full mb-6" src="https://www.keraflo.co.uk/wp-content/uploads/2019/01/GG-Wembley-Stadium-Case-Image.jpg">
-				<span class="bg-green-300 text-green-600 font-semibold px-4 py-px text-sm rounded-full">30th March</span>
-				<h1 class="text-gray-800 font-semibold my-3 text-xl">Kids visit Wembley stadium on tour.</h1>
-				<p class="text-gray-500 mb-3">Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
-				<a href="" class="underline">Read more</a>
-			</div>
-			<div class="lg:w-7/12 flex flex-col justify-between mt-12 space-y-5 lg:space-y-0 lg:mt-0">
-				<div class="flex space-x-5">
-					<div class="w-4/12">
-						<div class="relative">
-							<img class="rounded-xl w-full" src="https://mhaecal.github.io/frontend/img/children-laptop.png">
-							<span class="absolute bottom-2 right-2 bg-green-300 text-green-600 font-semibold px-4 py-px text-sm rounded-full hidden sm:block">Yesterday</span>
-						</div>
-					</div>
-					<div class="w-8/12">
-						<h1 class="text-gray-800 text-sm sm:text-lg font-semibold">Teaching children/youth how to prepare food</h1>
-						<p class="text-gray-500 my-2 sm:my-4 text-xs sm:text-md">Starting at the basics, the company that created Class we make food,...</p>
-					</div>
-				</div>
-				<div class="flex space-x-5">
-					<div class="w-4/12">
-						<div class="relative">
-							<img class="rounded-xl w-full" src="https://mhaecal.github.io/frontend/img/girl-laptop.png">
-							<span class="absolute bottom-2 right-2 bg-green-300 text-green-600 font-semibold px-4 py-px text-sm rounded-full hidden sm:block">22 June</span>
-						</div>
-					</div>
-					<div class="w-8/12">
-						<h1 class="text-gray-800 text-sm sm:text-lg font-semibold">Creating a daily/weekly routine with the child/youth</h1>
-						<p class="text-gray-500 my-2 sm:my-4 text-xs sm:text-md">Providing support for parents in the form of providing tips, written observations, and guidance in best practice for supporting the development of their child...</p>
-					</div>
-				</div>
-				<div class="flex space-x-5">
-					<div class="w-4/12">
-						<div class="relative">
-							<img class="rounded-xl w-full" src="https://mhaecal.github.io/frontend/img/cat-laptop.png">
-							<span class="absolute bottom-2 right-2 bg-green-300 text-green-600 font-semibold px-4 py-px text-sm rounded-full hidden sm:block">22 December, 2021</span>
-						</div>
-					</div>
-					<div class="w-8/12">
-						<h1 class="text-gray-800 text-sm sm:text-lg font-semibold">Activity-based sessions (in the community)</h1>
-						<p class="text-gray-500 my-2 sm:my-4 text-xs sm:text-md">Tailored to each child’s needs, values, family routine and lifestyle we make...</p>
-					</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 group mt-36 mx-5 md:mx-20">
+			{% for link_card in '1234' %}
+			<div class="bg-white w-full border border-gray-300 aspect-square">
+				<img class="mb-2 h-80 shadow-sm object-cover w-full relative" src="{% static 'images/activities.jpg' %}" alt="">
+				<span class="relative -top-9 bg-white px-5 py-2 z-10">Kagwa Mike</span>
+				<div class="relative -top-5">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 mx-3 text-blue-500" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16"> <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/> </svg>
+					<p class="text-base px-5 font-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit.</p>
 				</div>
 			</div>
-		</div>
+			{% endfor %}
 		</div>
 
+		<a href="{% url 'website:activities' %}" data-aos="flip-up" class="px-5 py-3 md:w-1/4 text-center border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">See what people are saying</a>
 		
 		<!-- TESTIMONIAL -->
-		<div class="mt-24 flex flex-col-reverse md:flex-row items-start md:space-x-10 mx-5 md:mx-20">
+		{% comment %} <div class="mt-24 flex flex-col-reverse md:flex-row items-start md:space-x-10 mx-5 md:mx-20">
 			<div data-aos="zoom-in-right" class="md:w-5/12">
 				<div class="flex items-center space-x-20 mb-5">
 					<span class="border border-gray-300 w-14 absolute"></span>
@@ -379,6 +353,12 @@
 			</div>
 			<div data-aos="zoom-in-left" class="md:w-7/12">
 				<img class="md:w-10/12 mx-auto" src="https://mhaecal.github.io/frontend/img/testimonials.png">
+			</div>
+		</div> {% endcomment %}
+		
+		<div class="bg-fixed" style="background-image: url({% static 'images/space-bg.jpg'%});">
+			<div class="px-10 md:px-20 py-10 bg-opacity-50 bg-blue-500 w-full text-white text-center">
+				<p class="text-3xl mb-8 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit.</p>
 			</div>
 		</div>
 	</div>
