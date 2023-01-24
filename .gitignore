@@ -1,6 +1,6 @@
-/media
 # /staticfiles
 /node_modules
 /venv
+/media
 
 db.sqlite3
