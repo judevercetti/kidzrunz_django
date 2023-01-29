@@ -93,6 +93,12 @@ def activities(request):
     packages = Package.objects.all()
 
     context = {
-        'packages': packages
+        'packages': [{
+            'name': package.name,
+            'image': package.image,
+            'price': package.price,
+            'duration': package.duration,
+            'description': package.description.splitlines(),
+        } for package in packages]
     }
     return render(request, "website/activities.html", context)

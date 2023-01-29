@@ -21,7 +21,7 @@
     <p>(E.G. If purchasing a pricing package and a £200 KidzRunz Activity Voucher in the same transaction, the total money on the Activity Voucher will be £220. KidzRunz will then top up an additional 10% (£22) on the Activity Voucher, making the total amount £242).</p>
   </div>
 
-  <div data-aos="flip-down" class="text-center max-w-screen-md mx-auto mt-28">
+  {% comment %} <div data-aos="flip-down" class="text-center max-w-screen-md mx-auto mt-28">
     <h1 class="text-3xl font-bold mb-4">Our<span class="text-blue-400"> Packages</span></h1>
     <p class="text-gray-500">You can purchase a certain number of hours which can be used over the space of 3 months. Each booking is inclusive of £20 which will go onto a KidzRunz Activity Voucher used towards the total cost of any activity booked with your child during a session.</p>
     <p class="text-gray-500 mt-4">E.G. If making a 5-hour booking for the total cost of £175, £20 will go towards a KidzRunz Activity Voucher covering the total cost of a booked activity for your child to enjoy with their Mentor. £155 remaining balance will be used to cover the total cost of the 5 hours booked).</p>
@@ -58,7 +58,7 @@
       <a href="{% url 'console:appointment' %}" class="mt-5 px-5 py-3 border border-blue-400 text-blue-400 font-medium my-4 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full">Book Now</a>
     </div>
   </div>
-  {% endif %} {% endfor %}
+  {% endif %} {% endfor %} {% endcomment %}
 </div>
 
 
@@ -73,65 +73,53 @@
   
   <div class="flex flex-col justify-between items-center lg:flex-row lg:items-start">
     
-    {% for package in packages %}
-      {% if forloop.first == 2 %}
-        <div class="w-full flex-1 mt-8 p-8 order-2 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-1 lg:rounded-r-none">
+    {% for package in packages %} 
+    {% comment %} {% if forloop.counter|divisibleby:3 %} {% endcomment %}
+        <div class="w-full flex-1 mt-8 mx-1 p-8 order-2 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-1">
           <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
-            <img src="https://res.cloudinary.com/williamsondesign/abstract-1.jpg"  alt="" class="rounded-3xl w-20 h-20" />
+            <img src="media/{{package.image}}"  alt="" class="rounded-3xl w-20 h-20" />
             <div class="ml-5">
-              <span class="block text-2xl font-semibold">Basic</span>
-              <span><span class="font-medium text-gray-500 text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold">10 </span></span><span class="text-gray-500 font-medium">/ user</span>
+              <span class="block text-2xl font-semibold">{{package.name}}</span>
+              <span><span class="font-medium text-gray-500 text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold">{{package.price}} </span></span><span class="text-gray-500 font-medium">/ {{package.duration}} hours</span>
             </div>
           </div>
           <ul class="mb-7 font-medium text-gray-500">
+            {% for line in package.description %}
             <li class="flex text-lg mb-2">
               <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-              <span class="ml-3">Get started with <span class="text-black">messaging</span></span>
+              <span class="ml-3">{{line}}</span>
             </li>
-            <li class="flex text-lg mb-2">
-              <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-              <span class="ml-3">Flexible <span class="text-black">team meetings</span></span>
-            </li>
-            <li class="flex text-lg">
-              <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-              <span class="ml-3"><span class="text-black">5 TB</span> cloud storage</span>
-            </li>
+            {% endfor %}
           </ul>
           <a href="#/" class="flex justify-center items-center bg-indigo-600 rounded-xl py-5 px-4 text-center text-white text-xl">
             Choose Plan
             <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" />
           </a>
         </div>
-      {% else %}
+      {% comment %} {% else %}
         <div class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-gray-900 text-gray-400 sm:w-96 lg:w-full lg:order-2 lg:mt-0">
           <div class="mb-8 pb-8 flex items-center border-b border-gray-600">
-            <img src="https://res.cloudinary.com/williamsondesign/abstract-2.jpg"  alt="" class="rounded-3xl w-20 h-20" />
+            <img src="media/{{package.image}}"  alt="" class="rounded-3xl w-20 h-20" />
             <div class="ml-5">
-              <span class="block text-3xl font-semibold text-white">Startup</span>
-              <span><span class="font-medium text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold text-white">24 </span></span><span class="font-medium">/ user</span>
+              <span class="block text-3xl font-semibold text-white">{{package.name}}</span>
+              <span><span class="font-medium text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold text-white">{{package.price}} </span></span><span class="font-medium">/ {{package.duration}} hours</span>
             </div>
           </div>
           <ul class="mb-10 font-medium text-xl">
+            {% for line in package.description %}
             <li class="flex mb-6">
               <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" />
-              <span class="ml-3">All features in <span class="text-white">Basic</span></span>
+              <span class="ml-3">{{line}}</span>
             </li>
-            <li class="flex mb-6">
-              <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" />
-              <span class="ml-3">Flexible <span class="text-white">call scheduling</span></span>
-            </li>
-            <li class="flex">
-              <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" />
-              <span class="ml-3"><span class="text-white">15 TB</span> cloud storage</span>
-            </li>
+            {% endfor %}
           </ul>
           <a href="#/" class="flex justify-center items-center bg-indigo-600 rounded-xl py-6 px-4 text-center text-white text-2xl">
             Choose Plan
             <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" />
           </a>
         </div>
-      {% endif %}
-    {% endfor %}
+      {% endif %} {% endcomment %}
+      {% endfor %}
     
     {% comment %} <div class="w-full flex-1 mt-8 p-8 order-3 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-3 lg:rounded-l-none">
       <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
