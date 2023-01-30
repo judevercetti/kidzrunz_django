@@ -13,7 +13,7 @@
 
 <!-- lorem -->
 <div class="mt-16 px-5 md:px-20">
-  <div class="text-gray-500">
+  <div class="text-gray-500 text-center">
     <p>Each parent/carer has the option to top up their KidzRunz Activity voucher to cover any further costs for activities booked for each session. This will be an additional top up to the £20 that is included in the Pricing Package (as explained above).</p>
     <p class="py-5">Please note that money on an Activity Voucher should cover the total costs of any activity planned with your child (please note that this is at your discretion, there are many fun non-monetary activities that your child can enjoy). It is at your discretion how much money you top up on your voucher. Please ensure you top up enough money prior to the start of each session for any planned activities you have booked in with us.</p>
     <p>Money topped up on each voucher can be used up to 1 year after initial top up and can be transferred to an existing or new user of KidzRunz where desired, provided that it is transferred within the 1-year period of which it is valid.</p>
@@ -77,10 +77,10 @@
     {% comment %} {% if forloop.counter|divisibleby:3 %} {% endcomment %}
         <div class="w-full flex-1 mt-8 mx-1 p-8 order-2 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-1">
           <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
-            <img src="media/{{package.image}}"  alt="" data-aos-once="true" class="rounded-3xl w-20 h-20" />
+            <img src="media/{{package.image}}"  alt="" data-aos-once="true" class="rounded-3xl h-20 w-20 object-contain" />
             <div class="ml-5">
               <span class="block text-2xl font-semibold">{{package.name}}</span>
-              <span><span class="font-medium text-gray-500 text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold">{{package.price}} </span></span><span class="text-gray-500 font-medium">/ {{package.duration}} hours</span>
+              <span><span class="font-medium text-gray-500 text-xl align-top">£</span><span class="text-3xl font-bold">{{package.price}} </span></span><span class="text-gray-500 font-medium">/ {{package.duration}} hours</span>
             </div>
           </div>
           <ul class="mb-7 font-medium text-gray-500">

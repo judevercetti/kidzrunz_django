@@ -10,61 +10,61 @@ def index(request):
     cards = [
         {
             'title': 'About us',
-            'description': '',
+            'description': 'We consider each child’s uniqueness',
             'image': '',
             'link': '/about'
         },
         {
             'title': 'Packages',
-            'description': '',
+            'description': None,
             'image': '',
             'link': '/activities'
         },
         {
             'title': 'Career tips & mindfulness',
-            'description': '',
+            'description': None,
             'image': '',
             'link': ''
         },
         {
             'title': 'CBT & DBT therapy',
-            'description': '',
+            'description': None,
             'image': '',
             'link': ''
         },
         {
             'title': 'Parents stories',
-            'description': '',
+            'description': None,
             'image': '',
             'link': ''
         },
         {
             'title': 'Referrals',
-            'description': '',
+            'description': None,
             'image': '',
             'link': ''
         },
         {
             'title': 'Events and activities',
-            'description': '',
+            'description': None,
             'image': '',
             'link': '/activities'
         },
         {
             'title': 'Sponsors and donate',
-            'description': '',
+            'description': None,
             'image': '',
             'link': ''
         },
         {
             'title': 'Gallery',
-            'description': '',
+            'description': None,
             'image': '',
             'link': '/gallery'
         },
         {
             'title': 'Contact details',
-            'description': '',
+            'description': None,
             'image': '',
             'link': '/about'
         },

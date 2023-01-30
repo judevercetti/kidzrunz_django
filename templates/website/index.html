@@ -127,10 +127,12 @@
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-5 group mt-36 mx-5 md:mx-20">
 			{% for link_card in link_cards %}
-			<a href="{{link_card.link}}" class="bg-white  text-center w-full rounded-xl aspect-square items-center">
+			<a href="{{link_card.link}}" class="bg-white  text-center w-full rounded-xl aspect-square items-center hover:bg-blue-50">
 				<img class="rounded-xl h-52 mb-2 shadow-sm object-cover w-full z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
-				<span class="text-xl border-b-2 text-blue-500 capitalize">{{link_card.title}}</span>
-				<p class="text-base py-3">short description</p>
+				<span class="text-xl border-b-2 text-blue-500 capitalize hover:border-blue-500">{{link_card.title}}</span>
+				<p class="text-base py-3">
+					{% if link_card.description %}{{link_card.description}}{% endif %}
+				</p>
 			</a>
 			{% endfor %}
 		</div>
