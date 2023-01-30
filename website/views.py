@@ -15,8 +15,8 @@ def index(request):
             'link': '/about'
         },
         {
-            'title': 'Packages',
-            'description': None,
+            'title': 'Package 3-6-9',
+            'description': 'Packages aimed at youths',
             'image': '',
             'link': '/activities'
         },
