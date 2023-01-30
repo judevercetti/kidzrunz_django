@@ -21,16 +21,16 @@ def index(request):
             'link': '/activities'
         },
         {
-            'title': 'Career tips & mindfulness',
+            'title': 'Leadership',
             'description': None,
             'image': '',
-            'link': ''
+            'link': '/leadership'
         },
         {
-            'title': 'CBT & DBT therapy',
-            'description': None,
+            'title': 'Mission and Ethos',
+            'description': 'To give back to the community',
             'image': '',
-            'link': ''
+            'link': '/mission'
         },
         {
             'title': 'Parents stories',
@@ -80,6 +80,14 @@ def index(request):
 
 def aboutus(request):
     return render(request, "website/about-us.html")
+
+
+def leadership(request):
+    return render(request, "website/leadership.html")
+
+
+def mission(request):
+    return render(request, "website/mission.html")
 
 
 def gallery(request):
