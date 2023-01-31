@@ -1,0 +1,44 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+
+<div class="bg-blue-900">
+  <div class="px-8 mx-auto flex flex-col lg:flex-row items-start">
+    <!--Left Col-->
+    <div class="flex w-full justify-center lg:pt-24 text-center lg:text-left mb-5 md:mb-0">
+      <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-center text-5xl font-bold leading-tight text-green-600"><span class="text-blue-400">Book a</span> consultation</h1>
+    </div>
+  </div>
+</div>
+
+<!-- container -->
+
+<!-- lorem -->
+<div class="my-16">
+
+  <div data-aos="flip-down" class="text-center w-full-md mx-5 md:mx-20 mt-20">
+    <div data-aos="fade-up" class="flex flex-col md:flex-row justify-center space-y-5 md:space-y-0 md:space-x-6 lg:space-x-10 mt-7">
+
+      <form class="md:w-1/2 space-y-4 md:space-y-6 text-left" action="" method="POST">
+        {% csrf_token %}
+        <div class="flex space-x-5">  
+          <div class="w-full">
+            <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full name</label>
+            <input type="text" name="full_name" id="full_name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
+          </div>
+          <div class="w-full">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
+          </div>
+        </div>
+        <div>
+          <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
+          <textarea rows="5" name="message" id="message" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="write your message here" required="" ></textarea>
+        </div>
+        <button type="submit" class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Send message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- .container -->
+
+{% endblock contentarea %}

@@ -15,7 +15,7 @@ def index(request):
             'link': '/about'
         },
         {
-            'title': 'Package 3-6-9',
+            'title': 'Mentoring Activate Packages',
             'description': 'Packages aimed at youths',
             'image': '',
             'link': '/activities'
@@ -27,28 +27,28 @@ def index(request):
             'link': '/leadership'
         },
         {
+            'title': 'Our services',
+            'description': 'Included but not limited to',
+            'image': '',
+            'link': '/services'
+        },
+        {
             'title': 'Mission and Ethos',
             'description': 'To give back to the community',
             'image': '',
             'link': '/mission'
         },
         {
-            'title': 'Parents stories',
+            'title': 'Terms and Conditions',
             'description': None,
             'image': '',
-            'link': ''
+            'link': '/terms-and-conditions'
         },
         {
-            'title': 'Referrals',
+            'title': 'Safeguarding and Enhanced DBS',
             'description': None,
             'image': '',
-            'link': ''
-        },
-        {
-            'title': 'Events and activities',
-            'description': None,
-            'image': '',
-            'link': '/activities'
+            'link': '/safeguarding-and-enhanced-dbs'
         },
         {
             'title': 'Sponsors and donate',
@@ -82,12 +82,32 @@ def aboutus(request):
     return render(request, "website/about-us.html")
 
 
+def contactus(request):
+    return render(request, "website/contact-us.html")
+
+
+def consultation(request):
+    return render(request, "website/consultation.html")
+
+
 def leadership(request):
     return render(request, "website/leadership.html")
 
 
 def mission(request):
     return render(request, "website/mission.html")
+
+
+def services(request):
+    return render(request, "website/services.html")
+
+
+def termsandconditions(request):
+    return render(request, "website/terms-and-conditions.html")
+
+
+def safeguardingandenhanceddbs(request):
+    return render(request, "website/safeguarding-and-enhanced-dbs.html")
 
 
 def gallery(request):

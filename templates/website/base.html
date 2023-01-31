@@ -60,9 +60,11 @@
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:index' %}">Home</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/about' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:about' %}">About Us</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/activities' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:activities' %}">Activities</a>
+                <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/contact' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:contact' %}">Contact us</a>
+                <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/consultation' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:consultation' %}">Book consultation</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/gallery' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:gallery' %}">Gallery</a>
-                <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4" href="login">Login</a>
-                <a class="px-10 py-3 mt-2 text-sm text-center bg-blue-400 text-white rounded-full md:mt-8 md:ml-4" href="signup">Sign Up</a>
+                {% comment %} <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4" href="login">Login</a> {% endcomment %}
+                <a class="px-10 py-3 mt-2 text-sm text-center bg-blue-400 text-white rounded-full md:mt-8 md:ml-4" href="login">Sign in</a>
             </nav>
         </div>
     </div>
@@ -325,7 +327,7 @@
       class="mt-16 border-t border-gray-500 pt-6 sm:flex sm:items-center sm:justify-between"
     >
       <p class="text-center text-sm text-gray-300 sm:text-left">
-        Copyright &copy; 2022. All rights reserved.
+        Copyright &copy; 2023 Kidzrunz. All rights reserved.
       </p>
 
       <ul class="mt-4 flex justify-center gap-6 sm:mt-0 sm:justify-start">
