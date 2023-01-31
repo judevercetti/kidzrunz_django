@@ -62,12 +62,6 @@ def index(request):
             'image': '',
             'link': '/gallery'
         },
-        {
-            'title': 'Contact details',
-            'description': None,
-            'image': '',
-            'link': '/about'
-        },
     ]
 
     context = {
