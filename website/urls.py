@@ -14,4 +14,7 @@ urlpatterns = [
     path('contact', views.contactus, name='contact'),
     path('terms-and-conditions', views.termsandconditions, name='terms-and-conditions'),
     path('safeguarding-and-enhanced-dbs', views.safeguardingandenhanceddbs, name='safeguarding-and-enhanced-dbs'),
+    path('who-cams-are', views.who_cams_are, name='who-cams-are'),
+    path('mindfulness-approach', views.mindfuless_approach, name='mindfulness-approach'),
+    path('cams-pace-approach', views.cams_pace_approach, name='cams-pace-approach'),
 ]

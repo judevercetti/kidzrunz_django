@@ -10,7 +10,7 @@ def index(request):
     cards = [
         {
             'title': 'About us',
-            'description': 'We consider each child’s uniqueness',
+            'description': 'Welcome to KidzRunz!',
             'image': '',
             'link': '/about'
         },
@@ -21,8 +21,8 @@ def index(request):
             'link': '/activities'
         },
         {
-            'title': 'Leadership',
-            'description': None,
+            'title': 'Director\'s Story',
+            'description': 'Meet Kenneth Holder',
             'image': '',
             'link': '/leadership'
         },
@@ -61,6 +61,24 @@ def index(request):
             'description': None,
             'image': '',
             'link': '/gallery'
+        },
+        {
+            'title': 'Who CAMS are',
+            'description': 'Child Activity Mentor Support (CAMS)',
+            'image': '',
+            'link': '/who-cams-are'
+        },
+        {
+            'title': 'Mindfulness approach',
+            'description': 'We take a mindfulness approach',
+            'image': '',
+            'link': '/mindfulness-approach'
+        },
+        {
+            'title': 'CAMS PACE APPROACH',
+            'description': 'Creating a safe and nurturing environment',
+            'image': '',
+            'link': '/cams-pace-approach'
         },
     ]
 
@@ -124,3 +142,15 @@ def activities(request):
         } for package in packages]
     }
     return render(request, "website/activities.html", context)
+
+
+def who_cams_are(request):
+    return render(request, "website/who-cams-are.html")
+
+
+def mindfuless_approach(request):
+    return render(request, "website/mindfulness-approach.html")
+
+
+def cams_pace_approach(request):
+    return render(request, "website/cams-pace-approach.html")

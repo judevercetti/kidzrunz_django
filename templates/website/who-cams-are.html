@@ -1,0 +1,29 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+
+<div class="bg-blue-900">
+  <div class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
+    <!--Left Col-->
+    <div class="flex w-full justify-center lg:pt-24 text-center lg:text-left mb-5 md:mb-0">
+      <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-center text-5xl font-bold leading-tight text-gray-200">WHO CAMS ARE</h1>
+    </div>
+  </div>
+</div>
+
+<!-- container -->
+
+<!-- lorem -->
+<div class="mt-16 px-5 md:px-20 mx-auto flex flex-col md:flex-row space-y-5 md:space-x-10 md:space-y-0">
+  <div class="md:w-1/2">
+    <img class="rounded-lg w-full h-96 object-cover" src="{% static 'images/activities.jpg' %}">
+  </div>
+
+  <div class="md:w-1/2 text-gray-500 flex flex-col space-y-3 my-auto text-base">
+    <p>KidzRunz's Child Activity Mentor Support (CAMS) is a team of trained professionals who specialize in providing recreational activities and support to children while ensuring their safety and well-being. All of our CAMS workers have experience working in Local Authority Children Homes and undergo a full DBS Enhanced check before joining our team. </p>
+    <p>At KidzRunz, we understand that every child is unique, and that is why we have CAMS workers who also specialize in providing support for children with special needs, SEND, and autism. These CAMS workers are trained to recommend sensory activities that meet the unique needs of these children, ensuring that they feel comfortable and engaged in the activities. </p>
+    <p>In summary, KidzRunz's Child Activity Mentor Support (CAMS) is a team of trained professionals who support families with their children to participate in recreational activities. Our CAMS workers undergo a full DBS Enhanced check. They are trained in child safeguarding, first aid, and mental health awareness, ensuring they are equipped to handle any situation that may arise while working with children.</p>
+  </div>
+</div>
+
+<!-- .container -->
+
+{% endblock contentarea %}

@@ -4,7 +4,7 @@
   <div class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
     <!--Left Col-->
     <div class="flex w-full justify-center lg:pt-24 text-center lg:text-left mb-5 md:mb-0">
-      <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-center text-5xl font-bold leading-tight text-green-600"><span class="text-blue-400">Mentoring Activate Packages</span></h1>
+      <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-center text-5xl font-bold leading-tight text-gray-200">Mentoring Activate Packages</h1>
     </div>
   </div>
 </div>
@@ -40,9 +40,9 @@
 
 <main class="max-w-6xl mx-auto pt-32 pb-36 px-8">
   
-  <div class="max-w-xl mx-auto mb-14 text-center">
+  <div class="max-w-screen-lg mx-auto mb-14 text-center">
     <h1 class="text-4xl font-semibold mb-6 lg:text-5xl"><span class="text-indigo-600">Our</span> Packages</h1>
-    <p class="text-xl text-gray-500 font-medium">Additional vouchers can be purchased to cover the cost of specific activities you would like to include in your bespoke package.</p>
+    <p class="text-xl text-gray-500 font-medium">KidzRunz Activity Packages At KidzRunz, we offer three different activity packages to meet your family's unique needs and interests. Our packages include a range of activities, snacks, transportation services, and mentorship options to ensure a safe, fun, and engaging experience for your child. </p>
   </div>
   
   <div class="flex flex-col justify-between items-center lg:flex-row lg:items-start">
@@ -71,59 +71,13 @@
             <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" />
           </a>
         </div>
-      {% comment %} {% else %}
-        <div class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-gray-900 text-gray-400 sm:w-96 lg:w-full lg:order-2 lg:mt-0">
-          <div class="mb-8 pb-8 flex items-center border-b border-gray-600">
-            <img src="media/{{package.image}}"  alt="" class="rounded-3xl w-20 h-20" />
-            <div class="ml-5">
-              <span class="block text-3xl font-semibold text-white">{{package.name}}</span>
-              <span><span class="font-medium text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold text-white">{{package.price}} </span></span><span class="font-medium">/ {{package.duration}} hours</span>
-            </div>
-          </div>
-          <ul class="mb-10 font-medium text-xl">
-            {% for line in package.description %}
-            <li class="flex mb-6">
-              <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" />
-              <span class="ml-3">{{line}}</span>
-            </li>
-            {% endfor %}
-          </ul>
-          <a href="#/" class="flex justify-center items-center bg-indigo-600 rounded-xl py-6 px-4 text-center text-white text-2xl">
-            Choose Plan
-            <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" />
-          </a>
-        </div>
-      {% endif %} {% endcomment %}
       {% endfor %}
-    
-    {% comment %} <div class="w-full flex-1 mt-8 p-8 order-3 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-3 lg:rounded-l-none">
-      <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
-        <img src="https://res.cloudinary.com/williamsondesign/abstract-3.jpg"  alt="" class="rounded-3xl w-20 h-20" />
-        <div class="ml-5">
-          <span class="block text-2xl font-semibold">Enterprise</span>
-          <span><span class="font-medium text-gray-500 text-xl align-top">$&thinsp;</span><span class="text-3xl font-bold">35 </span></span><span class="text-gray-500 font-medium">/ user</span>
-        </div>
-      </div>
-      <ul class="mb-7 font-medium text-gray-500">
-        <li class="flex text-lg mb-2">
-          <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-          <span class="ml-3">All features in <span class="text-black">Startup</span></span>
-        </li>
-        <li class="flex text-lg mb-2">
-          <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-          <span class="ml-3">Growth <span class="text-black">oriented</span></span>
-        </li>
-        <li class="flex text-lg">
-          <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg" />
-          <span class="ml-3"><span class="text-black">Unlimited</span> cloud storage</span>
-        </li>
-      </ul>
-      <a href="#/" class="flex justify-center items-center bg-indigo-600 rounded-xl py-5 px-4 text-center text-white text-xl">
-        Choose Plan
-        <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" />
-      </a>
-    </div> {% endcomment %}
-    
+  </div>
+
+  
+  <div class="max-w-screen-lg mx-auto mt-20 text-center text-gray-500 font-medium text-base">
+    <p>Activity Vouchers In addition to our activity packages, we also offer activity vouchers that can be purchased to cover the cost of specific activities you would like to include in your bespoke package. Each package includes standard KidzRunz©️ Activities, and additional vouchers can be purchased to customize your package. </p>
+    <p class="mt-5">Please remember that clients have up to 3 months to use the booked hours, and the minimum sessions are 3 hours. Once you have connected with us, our team will work with you to help you select the package that best fits your family's needs and interests. Please feel free to contact us today to learn more about our packages and schedule your child's unforgettable KidzRunz experience.</p>
   </div>
   
 </main>
