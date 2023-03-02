@@ -54,9 +54,6 @@ class Package(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = f"{slugify(self.name)}"
-
-        self.name = self.name
-
         super().save(*args, **kwargs)
 
     def __str__(self) -> str:
@@ -79,3 +76,21 @@ class Gallery(models.Model):
 
     def __str__(self) -> str:
         return f"{self.title}"
+
+
+class News(models.Model):
+    title = models.CharField(max_length=256)
+    description = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
+    image = models.FileField(upload_to=gallery_directory_path, blank=True, null=True)
+    slug = models.SlugField(_("Safe Url"), unique=True, blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        self.slug = f"{slugify(self.title)}"
+        if not self.description:
+            self.description = self.content[:200]
+        super().save(*args, **kwargs)

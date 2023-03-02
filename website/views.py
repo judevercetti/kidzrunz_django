@@ -1,91 +1,93 @@
 from django.shortcuts import render
 
-from website.models import Gallery, Package, Service
+from website.models import Gallery, News, Package, Service
 
 # Create your views here.
 def index(request):
     services = Service.objects.all()
     packages = Package.objects.all()
+    news = News.objects.all()
 
     cards = [
         {
             'title': 'About us',
-            'description': 'Welcome to KidzRunz!',
+            # 'description': 'Welcome to KidzRunz!',
             'image': '',
             'link': '/about'
         },
         {
+            'title': 'Our services',
+            # 'description': 'Included but not limited to',
+            'image': '',
+            'link': '/services'
+        },
+        {
+            'title': 'Gallery',
+            # 'description': None,
+            'image': '',
+            'link': '/gallery'
+        },
+        {
             'title': 'Mentoring Activate Packages',
-            'description': 'Packages aimed at youths',
+            # 'description': 'Packages aimed at youths',
             'image': '',
             'link': '/activities'
         },
         {
             'title': 'Director\'s Story',
-            'description': 'Meet Kenneth Holder',
+            # 'description': 'Meet Kenneth Holder',
             'image': '',
             'link': '/leadership'
         },
-        {
-            'title': 'Our services',
-            'description': 'Included but not limited to',
-            'image': '',
-            'link': '/services'
-        },
-        {
-            'title': 'Mission and Ethos',
-            'description': 'To give back to the community',
-            'image': '',
-            'link': '/mission'
-        },
+        # {
+        #     'title': 'Mission and Ethos',
+        #     # 'description': 'To give back to the community',
+        #     'image': '',
+        #     'link': '/mission'
+        # },
         {
             'title': 'Terms and Conditions',
-            'description': None,
+            # 'description': None,
             'image': '',
             'link': '/terms-and-conditions'
         },
         {
             'title': 'Safeguarding and Enhanced DBS',
-            'description': None,
+            # 'description': None,
             'image': '',
             'link': '/safeguarding-and-enhanced-dbs'
         },
         {
             'title': 'Sponsors and donate',
-            'description': None,
+            # 'description': None,
             'image': '',
             'link': ''
         },
-        {
-            'title': 'Gallery',
-            'description': None,
-            'image': '',
-            'link': '/gallery'
-        },
-        {
-            'title': 'Who CAMS are',
-            'description': 'Child Activity Mentor Support (CAMS)',
-            'image': '',
-            'link': '/who-cams-are'
-        },
+        # {
+        #     'title': 'Who CAMS are',
+        #     # 'description': 'Child Activity Mentor Support (CAMS)',
+        #     'image': '',
+        #     'link': '/who-cams-are'
+        # },
         {
             'title': 'Mindfulness approach',
-            'description': 'We take a mindfulness approach',
+            # 'description': 'We take a mindfulness approach',
             'image': '',
             'link': '/mindfulness-approach'
         },
-        {
-            'title': 'CAMS PACE APPROACH',
-            'description': 'Creating a safe and nurturing environment',
-            'image': '',
-            'link': '/cams-pace-approach'
-        },
+        # {
+        #     'title': 'CAMS PACE APPROACH',
+        #     # 'description': 'Creating a safe and nurturing environment',
+        #     'image': '',
+        #     'link': '/cams-pace-approach'
+        # },
     ]
 
     context = {
         'services': services,
         'packages': packages,
-        'link_cards': cards
+        'link_cards': cards,
+        'news': news,
     }
     return render(request, "website/index.html", context=context)
 
@@ -154,3 +156,17 @@ def mindfuless_approach(request):
 
 def cams_pace_approach(request):
     return render(request, "website/cams-pace-approach.html")
+
+
+def blog(request):
+    context = {
+        'posts': News.objects.all()
+    }
+    return render(request, "website/blog.html", context=context)
+
+
+def blog_details(request, slug):
+    context = {
+        'post': News.objects.get(slug=slug)
+    }
+    return render(request, "website/blog-details.html", context=context)

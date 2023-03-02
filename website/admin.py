@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from website.models import Gallery, Package, Service
+from website.models import Gallery, News, Package, Service
 
 # Register your models here.
 
@@ -15,3 +15,7 @@ class PackageAdmin(admin.ModelAdmin):
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'image')
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'created_on')

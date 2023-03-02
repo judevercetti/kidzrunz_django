@@ -17,4 +17,7 @@ urlpatterns = [
     path('who-cams-are', views.who_cams_are, name='who-cams-are'),
     path('mindfulness-approach', views.mindfuless_approach, name='mindfulness-approach'),
     path('cams-pace-approach', views.cams_pace_approach, name='cams-pace-approach'),
+
+    path('blog', views.blog, name='blog'),
+    path('blog/<slug:slug>', views.blog_details, name='blog-details'),
 ]

@@ -1,0 +1,41 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+{% load humanize %}
+
+<div class="bg-blue-900">
+  <div class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
+    <!--Left Col-->
+    <div class="flex w-full justify-center lg:pt-24 text-center lg:text-left mb-5 md:mb-0">
+      <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-center text-5xl font-bold leading-tight text-gray-200">BLOG</h1>
+    </div>
+  </div>
+</div>
+
+<!-- container -->
+
+<!-- lorem -->
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5 group my-20 mx-5 md:mx-20">
+			{% for new in posts %}
+				<div class="flex space-x-5">
+					<div class="w-4/12">
+						<div class="relative">
+							{% if new.image %}
+							<img class="rounded-xl w-full" src={% static '{{new.image}}' %}>
+							{% else %}
+							<img class="rounded-xl w-full h-32 object-cover" src={% static '/images/post-placeholder.jpg' %}>
+							{% endif %}
+							<span class="absolute bottom-2 right-2 bg-green-300 text-green-600 font-semibold px-4 py-px text-sm rounded-full hidden sm:block capitalize">{{new.created_on|naturalday}}</span>
+						</div>
+					</div>
+					<div class="w-8/12">
+						<a href="/blog/{{new.slug}}" class="text-sm sm:text-lg font-semibold text-blue-600 hover:underline">{{new.title}}</a>
+						<p class="text-gray-500 my-2 text-sm">{{new.description}}...</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>	
+
+
+<!-- .container -->
+
+{% endblock contentarea %}
