@@ -14,7 +14,11 @@
 <!-- lorem -->
 <div class="mt-16 px-5 md:px-20 mx-auto flex flex-col md:flex-row space-y-5 md:space-x-10 md:space-y-0">
   <div class="md:w-1/2">
+    {% if new.image %}
     <img class="rounded-lg w-full h-96 object-cover" src="/media/{{post.image}}">
+    {% else %}
+    <img class="rounded-lg w-full h-96 object-cover" src={% static '/images/post-placeholder.jpg' %}>
+    {% endif %}
   </div>
 
   <div class="md:w-1/2 text-gray-500 flex flex-col space-y-3 my-auto text-base">

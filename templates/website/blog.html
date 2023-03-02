@@ -20,7 +20,7 @@
 					<div class="w-4/12">
 						<div class="relative">
 							{% if new.image %}
-							<img class="rounded-xl w-full" src={% static '{{new.image}}' %}>
+							<img class="rounded-xl w-full" src="/media/{{new.image}}">
 							{% else %}
 							<img class="rounded-xl w-full h-32 object-cover" src={% static '/images/post-placeholder.jpg' %}>
 							{% endif %}
