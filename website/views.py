@@ -32,49 +32,49 @@ def index(request):
             # 'description': 'Packages aimed at youths',
             'image': '',
             'link': '/activities'
-        },
-        {
-            'title': 'Director\'s Story',
-            # 'description': 'Meet Kenneth Holder',
-            'image': '',
-            'link': '/leadership'
-        },
+        }
+        # {
+        #     'title': 'Director\'s Story',
+        #     # 'description': 'Meet Kenneth Holder',
+        #     'image': '',
+        #     'link': '/leadership'
+        # },
         # {
         #     'title': 'Mission and Ethos',
         #     # 'description': 'To give back to the community',
         #     'image': '',
         #     'link': '/mission'
         # },
-        {
-            'title': 'Terms and Conditions',
-            # 'description': None,
-            'image': '',
-            'link': '/terms-and-conditions'
-        },
-        {
-            'title': 'Safeguarding and Enhanced DBS',
-            # 'description': None,
-            'image': '',
-            'link': '/safeguarding-and-enhanced-dbs'
-        },
-        {
-            'title': 'Sponsors and donate',
-            # 'description': None,
-            'image': '',
-            'link': ''
-        },
+        # {
+        #     'title': 'Terms and Conditions',
+        #     # 'description': None,
+        #     'image': '',
+        #     'link': '/terms-and-conditions'
+        # },
+        # {
+        #     'title': 'Safeguarding and Enhanced DBS',
+        #     # 'description': None,
+        #     'image': '',
+        #     'link': '/safeguarding-and-enhanced-dbs'
+        # },
+        # {
+        #     'title': 'Sponsors and donate',
+        #     # 'description': None,
+        #     'image': '',
+        #     'link': ''
+        # },
         # {
         #     'title': 'Who CAMS are',
         #     # 'description': 'Child Activity Mentor Support (CAMS)',
         #     'image': '',
         #     'link': '/who-cams-are'
         # },
-        {
-            'title': 'Mindfulness approach',
-            # 'description': 'We take a mindfulness approach',
-            'image': '',
-            'link': '/mindfulness-approach'
-        },
+        # {
+            # 'title': 'Mindfulness approach',
+            # # 'description': 'We take a mindfulness approach',
+            # 'image': '',
+            # 'link': '/mindfulness-approach'
+        # },
         # {
         #     'title': 'CAMS PACE APPROACH',
         #     # 'description': 'Creating a safe and nurturing environment',

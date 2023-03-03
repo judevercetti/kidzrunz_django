@@ -126,7 +126,7 @@
 			</div>
 		</div> {% endcomment %}
 
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-5 group mt-36 mx-5 md:mx-20">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-x-5 gap-y-5 group mx-5 md:mx-20">
 			{% for link_card in link_cards %}
 			<a href="{{link_card.link}}" class="bg-white  text-center w-full rounded-xl aspect-square items-center hover:bg-blue-50">
 				<img class="rounded-xl h-52 mb-2 shadow-sm object-cover w-full z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
@@ -170,13 +170,21 @@
 
 
 		<div class="flex flex-col md:flex-row md:px-20 space-y-5 md:space-x-10 bg-gradient-to-l from-green-500 to-blue-500 w-full mt-28 text-white">
-			<img class="h-96 object-cover w-full md:w-1/2 z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
+			<img class="h-96 lg:h-full object-cover w-full md:w-1/2 z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
 			<div class="w-10/12 md:w-1/2 mx-auto my-auto">
-				<h1 class="capitalize text-3xl">Lorem ipsum</h1>
-				<p class="text-base mb-8 mt-3">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit. Proin efficitur, quam a lobortis consectetur, lorem velit tristique nisi, et venenatis metus lorem vitae metus. Proin neque arcu, volutpat sit amet dolor quis, feugiat tristique diam. Pellentesque fermentum ipsum sit amet odio porta, eget placerat ante rutrum
-				</p>
-				<a href="{% url 'console:appointment' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-blue-400">LEARN MORE </a>
+				<h1 class="capitalize text-3xl">Director's Story</h1>
+				<div class="text-base mb-8 mt-3 space-y-3">
+					<p>Meet Kenneth Holder, the Director of KidzRunz. Kenneth's experiences have shaped his passion for caregiving and dedication to supporting and mentoring children in need.</p>
+
+					<p>Raised in the care system, Kenneth had a positive experience with his foster carers and maintained a close relationship with them. Despite experiencing the loss of a child, he found strength in his relationship with his daughter and has always been passionate about working with children.</p>
+
+					<p>Kenneth is a mentor to his children, nephews, and nieces. He is also a fully qualified Residential Support Worker at a Local Authority Children Care Home in his community. He is committed to providing children with the care, support, and mentorship they need to thrive.</p>
+
+					<p>KidzRunz is a passion project for Kenneth, allowing him to do what he loves daily by giving back to needy children. His dedication to making a positive difference in children's lives drives him to provide safe and engaging activities through KidzRunz.</p>
+
+					<p>Kenneth's personal story is a testament to his commitment to caring for children, and he is proud to lead the team at KidzRunz in their mission to provide support and mentorship to children in need.</p>
+				</div>
+				<a href="{% url 'website:leadership' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-blue-400">LEARN MORE </a>
 			</div>
 		</div>
 
@@ -365,7 +373,10 @@
 		
 		<div class="bg-fixed" style="background-image: url({% static 'images/space-bg.jpg'%});">
 			<div class="px-10 md:px-20 py-10 bg-opacity-50 bg-blue-500 w-full text-white text-center">
-				<p class="text-3xl mb-8 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula lacus id tortor ultricies pulvinar. Nullam in nibh sit amet turpis euismod interdum at id elit.</p>
+				<p class="text-3xl mb-8 mt-3">
+					Your donation can make a difference! Every contribution helps us continue our mission and support those in need. Thank you for your generosity and for being a part of our community.
+				</p>
+				<a href="" class="px-10 py-3 font-semibold text-white hover:text-blue-500 shadow-xl  hover:bg-white duration-150  bg-blue-400">DONATE</a>
 			</div>
 		</div>
 	</div>
