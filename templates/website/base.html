@@ -64,7 +64,7 @@
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/consultation' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:consultation' %}">Book consultation</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/gallery' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:gallery' %}">Gallery</a>
                 {% comment %} <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4" href="login">Login</a> {% endcomment %}
-                <a class="px-10 py-3 mt-2 text-sm text-center bg-blue-400 text-white rounded-full md:mt-8 md:ml-4" href="login">Sign in</a>
+                <a class="px-10 py-3 mt-2 text-sm text-center bg-blue-400 text-white rounded-full md:mt-8 md:ml-4" href="/login">Sign in</a>
             </nav>
         </div>
     </div>
