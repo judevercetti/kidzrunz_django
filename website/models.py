@@ -78,11 +78,21 @@ class Gallery(models.Model):
         return f"{self.title}"
 
 
+
+
+def blog_directory_path(instance, filename):
+    ext = filename.split('.')[-1]
+    path = f'blog/{slugify(instance.title)}-{instance.created_on}.{ext}'
+    if os.path.exists(f'{settings.MEDIA_ROOT}/{path}'):
+        os.remove(f'{settings.MEDIA_ROOT}/{path}')
+    return path
+
+
 class News(models.Model):
     title = models.CharField(max_length=256)
     description = models.TextField(blank=True, null=True)
     content = models.TextField(blank=True, null=True)
-    image = models.FileField(upload_to=gallery_directory_path, blank=True, null=True)
+    image = models.FileField(upload_to=blog_directory_path, blank=True, null=True)
     slug = models.SlugField(_("Safe Url"), unique=True, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
 

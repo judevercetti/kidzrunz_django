@@ -120,6 +120,10 @@ def termsandconditions(request):
     return render(request, "website/terms-and-conditions.html")
 
 
+def privacy_policy(request):
+    return render(request, "website/privacy-policy.html")
+
+
 def safeguardingandenhanceddbs(request):
     return render(request, "website/safeguarding-and-enhanced-dbs.html")
 
@@ -167,6 +171,7 @@ def blog(request):
 
 def blog_details(request, slug):
     context = {
+        'posts': News.objects.exclude(slug=slug).all(),
         'post': News.objects.get(slug=slug)
     }
     return render(request, "website/blog-details.html", context=context)
