@@ -12,6 +12,7 @@ urlpatterns = [
     path('services', views.services, name='services'),
     path('consultation', views.consultation, name='consultation'),
     path('contact', views.contactus, name='contact'),
+    path('faqs', views.faqs, name='faqs'),
     # path('terms-and-conditions', views.termsandconditions, name='terms-and-conditions'),
     path('safeguarding-and-enhanced-dbs', views.safeguardingandenhanceddbs, name='safeguarding-and-enhanced-dbs'),
     path('who-cams-are', views.who_cams_are, name='who-cams-are'),

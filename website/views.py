@@ -100,6 +100,10 @@ def contactus(request):
     return render(request, "website/contact-us.html")
 
 
+def faqs(request):
+    return render(request, "website/faqs.html")
+
+
 def consultation(request):
     return render(request, "website/consultation.html")
 

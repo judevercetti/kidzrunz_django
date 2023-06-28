@@ -1,18 +1,20 @@
 {% extends './base.html' %} {% load static %} {% block contentarea %}
+{% include './banner.html' with title='Mentoring Activate Packages' %}
 
-<div class="bg-blue-900">
-  <div class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
-    <!--Left Col-->
-    <div class="flex w-full justify-center lg:pt-24 text-center lg:text-left mb-5 md:mb-0">
-      <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-center text-5xl font-bold leading-tight text-gray-200">Mentoring Activate Packages</h1>
+
+<!-- lorem -->
+<div class="mt-16">
+  <div data-aos="flip-down" class="text-left max-w-screen-lg mx-5 md:mx-auto">
+    <h1 class="text-3xl text-center font-bold mb-4"><span class="text-blue-400">Introducing Kidz Runz Pricing Packages!</span></h1>
+    <div class="text-gray-600 flex flex-col space-y-4 border-t border-blue-400 mt-5 pt-5">
+      <p>At Kidz Runz, we believe in providing flexible and affordable options to meet the diverse needs of our clients. Our pricing packages are designed to offer convenience, value, and a comprehensive range of services. With Kidz Runz, you can enjoy peace of mind knowing that all essential costs are covered, allowing you to focus on your child's participation in sporting activities and active outings.</p>
+      <p>Here are the details of our pricing packages:</p>
     </div>
   </div>
 </div>
 
-<!-- container -->
-
 <!-- lorem -->
-<div class="mt-16 px-5 md:px-20 mx-auto flex flex-col md:flex-row space-y-5 md:space-x-10 md:space-y-0">
+{% comment %} <div class="mt-16 px-5 md:px-20 mx-auto flex flex-col md:flex-row space-y-5 md:space-x-10 md:space-y-0">
   <div class="md:w-1/2">
     <img class="rounded-lg w-full h-96 object-cover" src="{% static 'images/activities.jpg' %}">
   </div>
@@ -33,17 +35,17 @@
 
     <p>Can't see exactly what you're looking for? No problem!</p>
   </div>
-</div>
+</div> {% endcomment %}
 
 
 
 
-<main class="max-w-6xl mx-auto pt-32 pb-36 px-8">
+<main class="max-w-6xl mx-auto mb-20 px-8">
   
-  <div class="max-w-screen-lg mx-auto mb-14 text-center">
+  {% comment %} <div class="max-w-screen-lg mx-auto mb-14 text-center">
     <h1 class="text-4xl font-semibold mb-6 lg:text-5xl"><span class="text-indigo-600">Our</span> Packages</h1>
     <p class="text-xl text-gray-500 font-medium">KidzRunz Activity Packages At KidzRunz, we offer three different activity packages to meet your family's unique needs and interests. Our packages include a range of activities, snacks, transportation services, and mentorship options to ensure a safe, fun, and engaging experience for your child. </p>
-  </div>
+  </div> {% endcomment %}
   
   <div class="flex flex-col justify-between items-center lg:flex-row lg:items-start">
     
@@ -75,10 +77,29 @@
   </div>
 
   
-  <div class="max-w-screen-lg mx-auto mt-20 text-center text-gray-500 font-medium text-base">
+  {% comment %} <div class="max-w-screen-lg mx-auto mt-20 text-center text-gray-500 font-medium text-base">
     <p>Activity Vouchers In addition to our activity packages, we also offer activity vouchers that can be purchased to cover the cost of specific activities you would like to include in your bespoke package. Each package includes standard KidzRunz©️ Activities, and additional vouchers can be purchased to customize your package. </p>
     <p class="mt-5">Please remember that clients have up to 3 months to use the booked hours, and the minimum sessions are 3 hours. Once you have connected with us, our team will work with you to help you select the package that best fits your family's needs and interests. Please feel free to contact us today to learn more about our packages and schedule your child's unforgettable KidzRunz experience.</p>
+  </div> {% endcomment %}
+
+<div class="mt-16">
+  <div data-aos="flip-down" class="text-left max-w-screen-lg mx-5 md:mx-auto">
+    <div class="text-gray-600 flex flex-col space-y-4 border-t border-blue-400 mt-5 pt-5">
+      <p>If you prefer a package spanning multiple weeks, we offer discounted options. For example:</p>
+      <p>- 3-Hour Package per Week for Six Weeks (18 hours total) - £725.00
+      <br />- 6-Hour Package per Week for Six Weeks  (36 hours total) - £1325.00
+      <br />- 9-Hour Package per Week for Six Weeks - (54 hours total) - £1925.00</p>
+      <p>These longer packages provide sustained support and value, allowing your child to engage in their favorite activities over an extended period.</p>
+      <p>We understand your child may have specific interests outside of regular sporting activities. If you need Kidz Runz to take your child to additional experiences such as the barber, cinema outings, theme parks, theater events, or other outings, we are here to help you with any other needs. Let us know the hours required for each activity-outing, and all associated fees will be covered.</p>
+      <p>If sporting classes or activities fall outside our standard pricing packages, customers can add extra funds to ensure coverage meets their requirements.</p>
+      <p>Furthermore, we offer the flexibility to transfer unused hours to another family or friend within a three-month period from the date of purchase. We believe in building a supportive community and encourage sharing the benefits of Kidz Runz.</p>
+      <p>Additionally, suppose your child is already enrolled in a specific sporting club with its own monthly fees. In that case, we can deduct those fees from your chosen pricing package, allowing for seamless integration and financial convenience.</p>
+      <p>At Kidz Runz, we are committed to making your child's sporting and active experiences safe, enjoyable, and hassle-free. Our pricing packages are designed to cater to your needs, ensuring that your child receives excellent care, supervision, and support throughout their activities.</p>
+      <p>Join Kidz Runz today and let us take care of the logistics while your child explores the world of sports and active outings!</p>
+      <p>So that you know, all prices mentioned are subject to change and may vary based on specific requirements.</p>
+    </div>
   </div>
+</div>
   
 </main>
 
