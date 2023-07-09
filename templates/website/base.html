@@ -44,11 +44,11 @@
 	<div x-data="{ open: false }" class="w-full text-grays-700 bg-cream">
         <div class="flex flex-col bg-blue-900 bg-opacit0 px-8 mx-auto md:items-center md:justify-between md:flex-row">
             <div class="flex flex-row items-center justify-between py-6">
-                <div class="relative md:mt-1">
+                {% comment %} <div class="relative md:mt-1">
                     <a href="#" class="text-transparent text-lg relative z-50 font-bold tracking-widest rounded-lg focus:outline-none focus:shadow-outline">
 					Kidzrunz</a>
 					<img src="{% static 'images/logo.png' %}" alt="" class="h-20 z-40 absolute -top-3 md:-top-3 -left-5">
-                </div>
+                </div> {% endcomment %}
                 <button class="text-white rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                         <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -58,13 +58,16 @@
             </div>
             <nav :class="{ 'transform md:transform-none': !open, 'h-full': open }" class="h-0 md:h-auto flex flex-col flex-grow text-white md:items-center pb-4 md:pb-0 md:flex md:justify-end md:flex-row origin-top duration-300 scale-y-0">
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:index' %}">Home</a>
-                <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/about' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:about' %}">About Us</a>
+                  {% include './dropdown.html' with title='About Us'  %}
+
+                {% comment %} <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/about' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:about' %}">About Us</a> {% endcomment %}
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/activities' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:activities' %}">Activities</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/contact' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:contact' %}">Contact Us</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/consultation' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:consultation' %}">Book consultation</a>
                 <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/gallery' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:gallery' %}">Gallery</a>
                 {% comment %} <a class="px-10 py-3 mt-2 text-sm text-center bg-white text-gray-800 rounded-full md:mt-8 md:ml-4" href="login">Login</a> {% endcomment %}
                 <a class="px-10 py-3 mt-2 text-sm text-center bg-blue-400 text-white rounded-full md:mt-8 md:ml-4" href="/login">Sign in</a>
+                
             </nav>
         </div>
     </div>

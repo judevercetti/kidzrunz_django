@@ -1,0 +1,48 @@
+<div class="dropdown px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline z-50">
+    {% comment %} <span class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/gallery' %}border-blue-400 border-b-2{% endif %}" href="{% url 'website:gallery' %}">Gallery</span> {% endcomment %}
+    <span class="cursor-pointer">{{ title }}</span>
+    <div class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95 z-50">
+        <div class="absolute md:-right-24 w-72 mt-3 origin-top-right bg-blue-100 border border-gray-0 divide-y divide-gray-0 shadow-lg rounded-md shadow-lg outline-none"
+             aria-labelledby="headlessui-menu-button-1"
+             id="headlessui-menu-items-117"
+             role="menu">
+            <div class="py-1 hover:text-blue-600">
+                <a href="/about/welcome-to-kidzrunz"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Welcome to Kidz Runz</a>
+                <a href="/about/our-mission-statements"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Our mission statements</a>
+                <a href="/about/once-upon-a-time-story"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Once Upon A Time Story</a>
+                <a href="/about/when-you-choose-kidz-runz"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">When you choose Kidz Runz</a>
+                <a href="/about/communication-and-feedback"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Communication and feedback</a>
+                <a href="/about/parent-tips-and-support"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Parent Tips and Support</a>
+                <a href="/about/our-commitment-to-safeguarding"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Our Commitment to Safeguarding</a>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+      .dropdown:hover  .dropdown-menu {
+        opacity:1;
+        transform: translate(0) scale(1);
+        visibility: visible;
+      }
+</style>

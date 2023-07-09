@@ -4,10 +4,13 @@
 	<div class="bg-fixed" style="background-image: url({% static 'images/space-bg.jpg'%}); background-size: cover">
 		<div class="bg-gradient-to-b from-blue-900 px-8 mx-auto flex flex-col lg:flex-row items-start">
 			<!--Left Col-->
-			<div class="flex flex-col  w-full lg:w-6/12 justify-center lg:pt-24 items-start text-center lg:text-left mb-5 md:mb-0">
-				<h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-5xl font-bold leading-tight text-green-600">
+			<div class="flex flex-col  w-full lg:w-6/12 justify-center lg:pt-5 items-start text-center lg:text-left mb-5 md:mb-0">
+				{% comment %} <div class="flex">
+				</div> {% endcomment %}
+				<img src="{% static 'images/logo.png' %}" alt="" class="h-56 z-40 mx-auto md:mx-0 mb-5">
+				{% comment %} <h1 data-aos="fade-right" data-aos-once="true" class="my-4 w-full text-5xl font-bold leading-tight text-green-600">
 					<span class="text-blue-400">KIDZ</span>RUNZ
-				</h1>
+				</h1> {% endcomment %}
 				<p data-aos="fade-down" data-aos-once="true" data-aos-delay="300" class="leading-normal text-2xl text-white mb-8">Providing professional Children's Activity-based Mentoring and Support services (CAMS)</p>
 				<div data-aos="fade-up" data-aos-once="true" data-aos-delay="700" class="w-full md:flex items-center justify-center lg:justify-start md:space-x-5">
 					<a href="{% url 'signup' %}" class="lg:mx-0 bg-blue-400 text-white text-xl font-bold rounded-full py-4 px-9 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">
@@ -23,7 +26,7 @@
 					</div>
 				</div>
 				<!-- component -->
-				<div data-aos="fade-up" data-aos-once="true" data-aos-delay="900" class="flex flex-wrap w-full justify-center md:justify-start gap-2 mt-5 md:mt-20">
+				<div data-aos="fade-up" data-aos-once="true" data-aos-delay="900" class="flex flex-wrap w-full justify-center md:justify-start gap-2 mt-5 md:mt-10">
 					{% comment %} <a href="" class="bg-blue-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
 					<svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
 					</a> {% endcomment %}
@@ -126,7 +129,7 @@
 			</div>
 		</div> {% endcomment %}
 
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-x-5 gap-y-5 group mx-5 md:mx-20">
+		{% comment %} <div class="grid grid-cols-1 md:grid-cols-4 gap-x-5 gap-y-5 group mx-5 md:mx-20">
 			{% for link_card in link_cards %}
 			<a href="{{link_card.link}}" class="bg-white  text-center w-full rounded-xl aspect-square items-center hover:bg-blue-50">
 				<img class="rounded-xl h-52 mb-2 shadow-sm object-cover w-full z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
@@ -136,7 +139,7 @@
 				</p>
 			</a>
 			{% endfor %}
-		</div>
+		</div> {% endcomment %}
 
 		<div class="px-10 md:px-20 py-10 bg-gradient-to-r from-green-500 to-blue-500 w-full mt-28 text-white">
 			<h1 class="capitalize text-3xl">SPECIAL OFFER</h1>
