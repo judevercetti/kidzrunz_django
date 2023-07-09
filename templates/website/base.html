@@ -42,13 +42,8 @@
         </div>
 	<!-- navbar -->
 	<div x-data="{ open: false }" class="w-full text-grays-700 bg-cream">
-        <div class="flex flex-col bg-blue-900 bg-opacit0 px-8 mx-auto md:items-center md:justify-between md:flex-row">
+        <div class="flex flex-col bg-blue-900 bg-opacit0 px-8 mx-auto md:items-center md:justify-between md:flex-row sticky top-0">
             <div class="flex flex-row items-center justify-between py-6">
-                {% comment %} <div class="relative md:mt-1">
-                    <a href="#" class="text-transparent text-lg relative z-50 font-bold tracking-widest rounded-lg focus:outline-none focus:shadow-outline">
-					Kidzrunz</a>
-					<img src="{% static 'images/logo.png' %}" alt="" class="h-20 z-40 absolute -top-3 md:-top-3 -left-5">
-                </div> {% endcomment %}
                 <button class="text-white rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                         <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -67,39 +62,11 @@
                   <span class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/activities' %} border-blue-400 border-b-2 {% endif %}">Testimonials</span>
                   <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/contact' %} border-blue-400 border-b-2 {% endif %}" href="{% url 'website:contact' %}">Contact Us</a>
                   <a class="px-10 py-3 mt-2 text-sm text-center bg-blue-400 text-white rounded-full md:mt-8 md:ml-4" href="/login">Sign in</a>
-                
             </nav>
         </div>
     </div>
 	
 	{% block contentarea %} {% endblock contentarea %}
-
-	{% comment %} <footer class="mt-32" style="background-color: rgba(37, 38, 65, 1);">
-		<div class="max-w-lg mx-auto">
-			<div class="flex py-12 justify-center text-white items-center px-20 sm:px-10">
-				<div class="relative">
-					<h1 class="font-bold text-transparent text-xl pr-5 relative z-50">Kidzrunz</h1>
-					<img src="{% static 'images/logo.png' %}" alt="" class="h-20 z-40 absolute -top-5">
-					<svg class="w-11 h-11 absolute -top-2 -left-3 z-40" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M35.9645 2.94975C37.9171 0.997129 41.0829 0.997127 43.0355 2.94975L76.0502 35.9645C78.0029 37.9171 78.0029 41.0829 76.0503 43.0355L43.0355 76.0502C41.0829 78.0029 37.9171 78.0029 35.9645 76.0503L2.94975 43.0355C0.997129 41.0829 0.997127 37.9171 2.94975 35.9645L35.9645 2.94975Z" stroke="#26C1F2" stroke-width="2"/>
-					</svg>
-				</div>
-				<span class="border-l border-gray-500 text-sm pl-5 py-2 font-semibold">Children’s Activity-based Mentoring and Support services (CAMS)</span>
-			</div>
-			<div class="text-center pb-16 pt-5">
-				<label class="text-gray-300 font-semibold">Subscribe to get our Newsletter</label>
-				<div class="px-5 sm:px-0 flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0 justify-center mt-3">
-					<input type="email" placeholder="Your Email" class="rounded-full py-2 pl-5 bg-transparent border border-gray-400">
-					<button type="submit" class="text-white w-40 sm:w-auto mx-auto sm:mx-0 font-semibold px-5 py-2 rounded-full" style="background: linear-gradient(105.5deg, #545AE7 19.57%, #393FCF 78.85%);">Subscribe</button>
-				</div>
-			</div>
-			<div class="flex items-center pb-10 text-gray-400 text-sm justify-center">
-				<a href="" class="pr-3">Support</a>
-				<a href="" class="border-l border-gray-400 px-3">Privacy</a>
-				<a href="" class="border-l border-gray-400 pl-3">Terms & Conditions</a>
-			</div>
-		</div>
-	</footer> {% endcomment %}
 
 
 <footer aria-label="Site Footer" class="mt-10" style="background-color: rgba(37, 38, 65, 1);">
