@@ -112,15 +112,11 @@ def aboutus(request, slug):
         context = {
             'title': 'Our Mission Statements',
             'content': '''
-Welcome, intrepid space explorers, to the Kidz Runz Galactic Headquarters! Our mission? To boldly go where no transportation service has gone before!
+At Kidz Runz, our mission is to be the ultimate sidekick for parents and caregivers, ensuring their children always have a thrilling and active experience, even when they can't be there in person. We're here to support you every step of the way, offering comprehensive packages that cater to your child's every need. From handling transportation logistics to providing our incredible team of Child Activity Mentors, we've got you covered!
 
-At Kidz Runz, we're not your average Earth-bound team. We're a crew of interstellar adventurers here to provide out-of-this-world support to families and caregivers. Our mission is to assist you in navigating the cosmic challenges of enabling your children to participate in various activities across the universe!
+We're driven by our mission to keep your children active, engaged, and supercharged with joy. We believe in providing a reliable and safe service that ensures your child thrives in a nurturing and exhilarating environment. Together, let's embark on an incredible journey of growth, well-being, and unforgettable experiences for your child!
 
-Picture this: your little ones zooming through space to engage in epic sporting and physical activities while you relax, knowing they're in safe hands. From gravity-defying appointments to interplanetary school drop-offs, we've got it covered. We'll even take them on mind-blowing trips to theme parks in faraway galaxies and guide them on one-on-one escapades to places you couldn't imagine!
-
-Through our elite squad of Child Activity Mentor Support (CAMS) staff, we'll ignite the spark of adventure in your young space explorers. We aim to inspire and encourage them to embrace physical activity, teamwork, and personal achievement. Think of our CAMS staff as the Jedi Masters of fun, guiding your children through exhilarating journeys across the cosmos.
-
-So, fasten your seatbelts, secure your space helmets, and prepare for a cosmic adventure! Join forces with Kidz Runz, and together we'll make sure your children's dreams reach astronomical heights. Let the journey begin!
+So, join our league of extraordinary adventurers and let Kidz Runz be your trusted sidekick. Together, we'll create magical memories and empower your child to reach new heights of excitement and discovery. Get ready for an adventure-filled ride that will leave your child beaming with happiness!
 '''
             }
     elif (slug == 'once-upon-a-time-story'):
