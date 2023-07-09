@@ -147,7 +147,7 @@
 			<a href="{% url 'console:appointment' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-green-400">LEARN MORE </a>
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5 group mt-36 mx-5 md:mx-20">
+		{% comment %} <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5 group mt-36 mx-5 md:mx-20">
 			{% for new in news %}
 				<div class="flex space-x-5">
 					<div class="w-4/12">
@@ -166,9 +166,9 @@
 					</div>
 				</div>
 			{% endfor %}
-		</div>	
+		</div>	 {% endcomment %}
 
-		<a href="{% url 'website:blog' %}" data-aos="flip-up" class="px-5 py-3 md:w-1/4 text-center border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">Read more</a>
+		{% comment %} <a href="{% url 'website:blog' %}" data-aos="flip-up" class="px-5 py-3 md:w-1/4 text-center border border-blue-400 text-blue-400 font-medium my-14 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out rounded-full mx-auto block">Read more</a> {% endcomment %}
 
 
 
