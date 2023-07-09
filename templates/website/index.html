@@ -172,10 +172,10 @@
 
 
 
-		{% comment %} <div class="flex flex-col md:flex-row md:px-20 space-y-5 md:space-x-10 bg-gradient-to-l from-green-500 to-blue-500 w-full mt-28 text-white">
-			<img class="h-96 lg:h-full object-cover w-full md:w-1/2 z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
+		<div class="flex flex-col md:flex-row md:px-20 space-y-5 md:space-x-10 bg-gradient-to-l from-green-500 to-blue-500 w-full mt-28 text-white">
+			<img class="max-h-96 lg:h-full object-cover w-full md:w-1/2 z-40 relative" src="{% static 'images/activities.jpg' %}" alt="">
 			<div class="w-10/12 md:w-1/2 mx-auto my-auto">
-				<h1 class="capitalize text-3xl">Director's Story</h1>
+				{% comment %} <h1 class="capitalize text-3xl">Director's Story</h1>
 				<div class="text-base mb-8 mt-3 space-y-3">
 					<p>Meet Kenneth Holder, the Director of KidzRunz. Kenneth's experiences have shaped his passion for caregiving and dedication to supporting and mentoring children in need.</p>
 
@@ -187,9 +187,9 @@
 
 					<p>Kenneth's personal story is a testament to his commitment to caring for children, and he is proud to lead the team at KidzRunz in their mission to provide support and mentorship to children in need.</p>
 				</div>
-				<a href="{% url 'website:leadership' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-blue-400">LEARN MORE </a>
+				<a href="{% url 'website:leadership' %}" class="px-5 py-3 font-medium text-white hover:text-slate-700 shadow-xl  hover:bg-white duration-150  bg-blue-400">LEARN MORE </a> {% endcomment %}
 			</div>
-		</div> {% endcomment %}
+		</div>
 
 		<div class="bg-fixed h-screen" style="background-image: url({% static 'images/bg-activities-2.jpg'%});">
 			<div class="px-5 md:px-20 py-10 bg-opacity-70 bg-blue-500 w-full md:w-1/2 md:h-full mt-28 text-white">
