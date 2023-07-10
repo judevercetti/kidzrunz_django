@@ -98,15 +98,30 @@ def aboutus(request, slug):
         context = {
             'title': 'Welcome to Kidz Runz!',
             'content': '''
-        Welcome to Kidz Runz, where adventure and convenience collide!
-        At Kidz Runz, we're fueled by a passion for making kids' dreams come true. We know that families and caregivers have superpowers, but even superheroes need a helping hand sometimes. That's where we come in!
+Welcome to Kidz Runz: Where Adventure and Fun Memories Begin!
 
-        We're here to save the day by allowing your child to participate in exciting local sporting activities. We understand the chaos of busy schedules, and we've got your back. We're trying to make your life easier, so you can focus on enjoying those precious family moments.
+Hey there, awesome parents and incredible caregivers! We know you're juggling many things and want the best for your little superheroes. That's why Kidz Runz is here to save the day!
 
-        With Kidz Runz by your side, you'll wave goodbye to the stress of logistics and wave hello to more quality time with your little champions. Together, we'll turn ordinary days into extraordinary adventures!
+Imagine this: a team of dedicated CAMS (Child Activity Mentor Support) professionals ready to accompany your child on exhilarating sporting activities and thrilling day outings. Our reliable transportation service ensures a seamless journey to all the action-packed adventures your child loves, from football and karate to rugby, swimming, netball, and beyond!
 
-        Join us at Kidz Runz and let the fun begin! It's time to unlock the full potential of your child's sporting dreams. Buckle up because we're here to make magic happen!
-        '''
+But wait, there's more! We know that parents sometimes need a break too. That's why Kidz Runz takes charge of planning mind-blowing theme park trips, fascinating museum visits,  Theater, Cinema, and a galaxy of indoor and outdoor fun activities. It's the perfect chance for you to recharge while your child has a blast under our amazing CAMS staff's watchful care and guidance.
+
+Safety first! We've got you covered. Our CAMS superheroes undergo rigorous background checks, including sparkling clean, complete Enhanced DBS checks. They bring extensive experience from child-centered environments like children's homes and group play settings, so you can breathe easy and enjoy peace of mind.
+
+Let's talk packages! Our (3 6 9) price packages are your ticket to stress-free fun. Here's what's included:
+
+🌟 No worries about sporting fees - we've got you covered! No surprise costs to spoil the adventure!
+🌟 Hungry little superheroes? Fear not! We provide scrumptious snacks and refreshing beverages to keep their energy levels soaring.
+🌟 Your child's sidekick is a dedicated (Child Activity Mentor Support) staff. They'll provide personalized attention, guidance, and a sprinkle of magic to make every experience unforgettable.
+🌟 Travel expenses? Leave them to us! You can focus on your commitments while we handle all the transportation logistics.
+🌟 Oh, and did we mention it? We provide comprehensive feedback on all our sessions, informing you about your child's progress, achievements, and any gems shared by coaches and teachers.
+
+At Kidz Runz, we take immense pride in creating a nurturing and engaging environment for your children. Our CAMS staff builds meaningful relationships, fostering personal growth, boosting confidence, and igniting a lifelong love for physical activity.
+
+So why wait? Join us today and discover the convenience, reliability, and pure joy that Kidz Runz brings to your family's life. Take the first step by contacting us or exploring our website for more information. We can't wait to be your trusted partner in supporting your child's active and enriching lifestyle!
+
+Prepare for an adventure-filled journey where laughter, growth, and memories are created at every turn. With Kidz Runz, the fun never stops!
+'''
         }
     elif (slug == 'our-mission-statements'):
         context = {
@@ -159,15 +174,31 @@ So gear up, suit up, and prepare for the most heart-pounding adventure of your c
         context = {
             'title': 'Communication and feedback',
             'content': '''
-Attention, cosmic adventurers and Earthly parents! Get ready for a communication and feedback system that's out of this world at Kidz Runz! We're not just about shuttling kids from point A to point B. Oh no, we're your trusty intergalactic partners on the wildest adventure of a lifetime!
+Welcome to the Kidz Runz Communication and Feedback Hub!
 
-Picture this: we've formed an elite alliance with coaches and teachers, gathering all the insider information on your child's cosmic sessions. We've got the inside scoop on every jump, every swim, and every goal. Why? So we can give you, the cosmic parents, the lowdown on all the mind-blowing progress and jaw-dropping accomplishments your little superheroes achieve!
+Get ready for a thrilling ride as we keep you in the loop every step of the way. At Kidz Runz, we believe communication is key, and we're here to ensure you're always in the know about your child's amazing adventures.
 
-Transparency and open communication are our secret weapons in this cosmic journey. We believe in keeping you, the superhero parents, in the loop so you can enjoy all the cosmic fun. Trust is built on knowing what's happening, and we're here to make sure you're well-informed about every warp-speed twist and gravity-defying turn in your child's adventure.
+Here's what you can expect from our communication and feedback system:
 
-At Kidz Runz, we're more than just a ride – we're your reliable sidekicks, your cosmic confidants. We're all about supporting families and helping your incredible kids unleash their hidden superpowers. Our pride and joy come from our commitment to professionalism, reliability, and your child's well-being.
+1. Session Highlights: We'll give you the inside scoop on each session's action-packed moments. From your child's mood to their fun conversations, we'll keep you updated with all the exciting details.
 
-So buckle up, fellow space explorers, and let's embark on this cosmic adventure together! With Kidz Runz by your side, get ready to witness your child's star power shine brighter than the brightest supernova. Let's ignite the engines of communication, zoom through the galaxy of progress updates, and watch your little heroes conquer the universe!
+2. Picture Perfect: If you requested photos, we'd capture those priceless moments when your child shines like a superstar. You'll feel like you were there, cheering them on and celebrating their achievements.
+
+3. Fuel for Fun: Superheroes need fuel to conquer their activities. We'll let you know what your child had to eat during the session, making sure they stay energized and satisfied throughout their adventures.
+
+4. Celebrate Victories: We love cheering on your child's victories! Whether they mastered a new move, received a special award, or made progress in their classes, we'll ensure you're there to celebrate every achievement.
+
+5. Expert Advice: Our dedicated Child Activity Mentor Support team is here to provide valuable guidance and advice. We'll share any helpful tips or insights they've shared during the session, empowering you to support your child's growth and development.
+
+6. Safety First: Your child's safety is our top priority. We'll let you know if any incidents happen during a session, ensuring complete transparency and peace of mind.
+
+Your feedback matters! We would like to hear from you. Share your thoughts, suggestions, and ideas with us after each session. Your insights help us continually improve our services and ensure we provide your child with the best possible experience.
+
+And let's not forget about your child's voice! We encourage them to share their feedback and thoughts too. Their experiences and perspectives are invaluable to us.
+
+At Kidz Runz, we believe in the power of transparency and open communication. We want you to feel fully involved in your child's journey from beginning to end. We aim to create a strong partnership where you can trust us to provide exceptional care and support for your child.
+
+So, buckle up and join us on this adventure! Stay connected, provide feedback, and let us create a seamless and enriching experience for your child. Reach out to us or explore our website for more information. Together, we'll make Kidz Runz an unforgettable chapter in your family's story!
 '''
             }
     elif (slug == 'parent-tips-and-support'):
@@ -307,8 +338,8 @@ def mindfuless_approach(request):
     return render(request, "website/mindfulness-approach.html")
 
 
-def cams_pace_approach(request):
-    return render(request, "website/cams-pace-approach.html")
+def cams(request):
+    return render(request, "website/cams.html")
 
 
 def blog(request):

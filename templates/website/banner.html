@@ -1,7 +1,24 @@
 {% load static %}
-<div class="animate-zoom-sway"
+<style>
+  /* styles.css */
+@keyframes zoom {
+  0% {
+    background-size: 100%;
+      background-position: 0% 0%;
+  }
+  50% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 100%;
+    background-position: 100% 100%;
+  }
+}
+</style>
+
+<div class=""
      style="background-image: url({% static 'images/space-bg.jpg' %});
-            background-size: cover">
+            background-size: cover; animation: zoom 120s infinite alternate linear;">
   <div class="bg-gradient-to-b from-blue-900 to-transparent px-8 mx-auto flex flex-col lg:flex-row items-center">
     <img src="{% static 'images/logo.png' %}"
          alt=""
