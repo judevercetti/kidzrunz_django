@@ -315,19 +315,77 @@ def gallery(request):
     return render(request, "website/gallery.html", context=context)
 
 
-def activities(request):
-    packages = Package.objects.all()
+def activities(request, slug=None):
+    
+    context = {}
+    if (slug == 'benefits-of-children-in-sports-activities'):
+        context = {
+            'title': 'Benefits of children in sports activities',
+            'content': '''
+The benefits of children participating in sports activities are immense, and at Kidz Runz, we are passionate about supporting children every step of the way. Here's why getting involved in sports is crucial and how Kidz Runz can contribute to your child's development:
 
-    context = {
-        'packages': [{
-            'name': package.name,
-            'image': package.image,
-            'price': package.price,
-            'duration': package.duration,
-            'description': package.description.splitlines(),
-        } for package in packages]
-    }
-    return render(request, "website/activities.html", context)
+1. Physical Fitness: Sports promote physical fitness, helping children develop healthy habits. Our transportation service ensures safe travel to sporting activities, enabling children to stay active and reduce the risk of diseases.
+
+2. Social Skills: Sports encourage interaction with peers, coaches, and officials, fostering teamwork, communication, and leadership skills. Kidz Runz provides a positive and supportive environment, enhancing your child's social development.
+
+3. Confidence and Self-Esteem: Through sports, children gain confidence and self-esteem by setting goals, persevering, and experiencing success. Our Child Activity Mentor Support (CAMS) offers encouragement, guidance, and constructive feedback, empowering children to build self-confidence.
+
+4. Academic Success: Research shows that sports participation correlates with improved academic performance. The skills learned in sports, such as discipline, time management, and dedication, can be applied to academic pursuits. Kidz Runz supports your child's overall development, including academic success.
+
+5. Respect for Authority: Sports teach children the importance of respecting authority, following rules, and accepting decisions. Children learn valuable lessons about discipline and teamwork through organized sports.
+
+6. Emotional Control: Sports provide an outlet for children to channel and control their emotions in a productive way. Kidz Runz recognizes the importance of emotional well-being and supports children in managing stress and negative emotions.
+
+7. Anti-Social Activities: Involvement in sports reduces the likelihood of children engaging in anti-social behaviors, such as smoking or drug use. Sports help children develop a sense of responsibility for their health and well-being.
+
+8. Stress Relief and Reduced Depression: Physical activities and sports are excellent stress relievers and can reduce the risk of depression. Kidz Runz promotes an active lifestyle and provides opportunities for children to engage in sports and physical activities, nurturing their mental well-being.
+
+9. Fun and Friendship: Sports bring joy and excitement to children's lives. Through sports, children make friends, share experiences, and create lifelong memories. Kidz Runz aims to make every child's sporting journey enjoyable and fulfilling.
+
+At Kidz Runz, we understand the significance of sports in children's overall development. By providing safe transportation, nutritional support, mentorship, and reporting services, we ensure that children have the best possible experience and can fully enjoy the benefits of sports involvement.
+
+Every child is unique, and we offer personalized support tailored to their interests and needs. Let Kidz Runz be your partner in nurturing your child's love for sports and helping them thrive on and off the field! Join us in creating a bright and successful future for your child through the power of sports.
+            '''
+        }
+    elif (slug == 'explore-activities'):
+        context = {
+            'title': 'Explore Activities',
+            'content': '''
+Embarking on exciting activities is a wonderful way for children to explore the world and create lasting memories. At Kidz Runz, we believe in the power of these adventures and the incredible benefits they bring to children's lives. Here's why exploring activities with Kidz Runz is so fantastic for parents and caregivers:
+
+1. Unforgettable Experiences: Visiting cinemas, theaters, theme parks, zoos, and museums allows children to embark on unforgettable experiences. These outings create cherished memories that children will treasure for a lifetime.
+
+2. Enriching Education: Exploring different environments and cultural sites provides valuable educational opportunities. Museums, zoos, and theme parks stimulate children's curiosity, enhancing their knowledge and understanding of the world around them.
+
+3. Safe and Supervised: Kidz Runz ensures every outing is safe and well-supervised. Our dedicated Child Activity Mentor Support (CAMS) professionals accompany children, providing attentive care, guidance, and support throughout the activities.
+
+4. Social Interaction: Participating in outings allows children to interact with peers, promoting socialization and the development of important social skills. Kidz Runz creates a friendly and inclusive environment that fosters social connections and friendships.
+
+5. Sparking Imagination: Exploring new environments sparks children's imagination and creativity. Whether it's through sightseeing or visiting cultural venues, children have the opportunity to think creatively and develop their imaginative abilities.
+
+6. Joy and Excitement: Engaging in these activities brings immense joy and excitement to children. The thrill of rides in theme parks, the magic of live performances, and the wonder of discovering new places create a sense of joy and enthusiasm that is truly infectious.
+
+7. Hassle-free Planning: Kidz Runz takes care of all the logistical details, from transportation to snack provisions, ensuring a seamless and stress-free experience for parents and caregivers. We handle the planning and organization, allowing you to focus on enjoying the adventure with your child.
+
+8. Bonding Opportunities: Exploring activities provide valuable opportunities for parents and caregivers to bond with their children. Sharing these experiences creates special connections and strengthens relationships, fostering lifelong connections.
+
+At Kidz Runz, we are committed to creating incredible and enriching childhood experiences. Our dedicated professionals ensure every outing is filled with joy, laughter, and exploration. Let Kidz Runz be your partner in providing your child with exciting adventures that will inspire their imagination, nurture their curiosity, and create lifelong memories.
+
+Join us on this incredible journey of exploration and discovery. Together, we will make every activity a magical and unforgettable experience for your child!
+            '''
+        }
+    else:
+        packages = Package.objects.all()
+        context = {
+            'packages': [{
+                'name': package.name,
+                'image': package.image,
+                'price': package.price,
+                'duration': package.duration,
+                'description': package.description.splitlines(),
+            } for package in packages]
+        }
+    return render(request, "website/activities_dropdown.html", context)
 
 
 def who_cams_are(request):

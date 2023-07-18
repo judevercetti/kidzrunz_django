@@ -2,8 +2,9 @@
     {% comment %} <span class="px-4 py-2 mt-2 text-sm bg-transparent rounded-sm md:pt-8 md:ml-4 border-b-2 border-transparent hover:border-green-400 focus:outline-none focus:shadow-outline {% if request.path == '/gallery' %}border-blue-400 border-b-2{% endif %}" href="{% url 'website:gallery' %}">Gallery</span> {% endcomment %}
     <span class="cursor-pointer">{{ title }}</span>
     <div class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95 z-50 ">
-        <div class="absolute md:-left-5 w-72 mt-3 origin-top-right bg-blue-100 divide-y divide-gray-0 rounded-xs shadow-lg outline-none border-t-4 border-green-400"
+        <div class="absolute md:-left-5 w-80 mt-3 origin-top-right bg-blue-100 divide-y divide-gray-0 rounded-xs shadow-lg outline-none border-t-4 border-green-400"
              >
+            {% if title == "About Us" %}
             <div class="py-1">
                 <a href="/about/welcome-to-kidzrunz"
                    tabindex="0"
@@ -34,6 +35,17 @@
                    class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
                    role="menuitem">Our Commitment to Safeguarding</a>
             </div>
+            {% endif %}
+            {% if title == "Activities" %}
+            <a href="/activities/benefits-of-children-in-sports-activities"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Benefits of children in sports activities</a>
+            <a href="/activities/explore-activities"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Explore Activities</a>
+            {% endif %}
         </div>
     </div>
 </div>
