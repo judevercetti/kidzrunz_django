@@ -45,6 +45,16 @@
                    class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
                    role="menuitem">Explore Activities</a>
             {% endif %}
+            {% if title == "Bookings" %}
+            <a href="/bookings/price-packages"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Price Packages</a>
+            <a href="/bookings/package-policies"
+                   tabindex="0"
+                   class="text-gray-700 hover:text-blue-700 hover:font-semibold flex justify-between w-full px-4 py-2 text-sm hover:text-base leading-5 text-left"
+                   role="menuitem">Package Policies</a>
+            {% endif %}
         </div>
     </div>
 </div>

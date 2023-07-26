@@ -407,7 +407,7 @@ def bookings(request, slug=None):
                 'price': package.price,
                 'duration': package.duration,
                 'description': package.description.splitlines(),
-            } for package in Package.objects.filter(package_type=2)]
+            } for package in Package.objects.filter(package_type=1)]
         }
         return render(request, "website/price-packages.html", context)
     elif (slug == 'package-policies'):

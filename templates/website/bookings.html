@@ -1,0 +1,16 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+{% include './banner.html' with title='Bookings' %}
+
+<!-- lorem -->
+<div class="mt-16">
+  <div data-aos="flip-down" class="text-left max-w-screen-lg mx-5 md:mx-auto">
+    <h1 class="text-3xl text-center font-bold mb-4"><span class="text-blue-400">{{title}}</span></h1>
+    <div class="text-gray-600 flex flex-col space-y-4 border-t border-blue-400 mt-5 pt-5">
+      {{content|linebreaksbr}}
+    </div>
+  </div>
+</div>
+
+<!-- .container -->
+
+{% endblock contentarea %}

@@ -44,13 +44,18 @@ def package_directory_path(instance, filename):
 
 
 class Package(models.Model):
+    PACKAGE_TYPE_CHOICES = (
+        (1, _("Short")),
+        (2, _("Long")),
+    )
     name = models.CharField(_("Name"), max_length=256)
     duration = models.IntegerField(_("Duration"))
     price = models.IntegerField(_("Price"))
     description = models.TextField(_("Description"), blank=True)
     image = models.FileField(upload_to=package_directory_path, blank=True)
     slug = models.SlugField(_("Safe Url"), unique=True, blank=True, null=True)
-    created_on = models.DateField(_("Created on"), default=timezone.now)
+    package_type = models.IntegerField(_("Package Type"), choices=PACKAGE_TYPE_CHOICES, default=1)
+    created_on = models.DateField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         self.slug = f"{slugify(self.name)}"
