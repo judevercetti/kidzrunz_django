@@ -68,7 +68,7 @@ class Package(models.Model):
 
 def gallery_directory_path(instance, filename):
     ext = filename.split('.')[-1]
-    path = f'gallery/{slugify(instance.title)}-{instance.created_on}.{ext}'
+    path = f'gallery/{timezone.now()}.{ext}'
     if os.path.exists(f'{settings.MEDIA_ROOT}/{path}'):
         os.remove(f'{settings.MEDIA_ROOT}/{path}')
     return path
@@ -77,7 +77,7 @@ class Gallery(models.Model):
     title = models.CharField(_("Name"), max_length=256, null=True, blank=True)
     description = models.TextField(_("Description"), blank=True, null=True)
     image = models.FileField(upload_to=gallery_directory_path, blank=True)
-    created_on = models.DateField(_("Created on"), default=timezone.now)
+    created_on = models.DateField(auto_now_add=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
