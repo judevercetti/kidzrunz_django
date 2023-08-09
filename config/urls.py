@@ -32,7 +32,7 @@ urlpatterns = [
     path('console/', include(('console.urls', 'console'), namespace='console')),
 
     path('admin/', admin.site.urls),
-    # path("__reload__/", include("django_browser_reload.urls")),
+    path("__reload__/", include("django_browser_reload.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'Kidzrunz Admin'

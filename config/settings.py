@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # 'django_browser_reload',
+    'tailwind',
+    'django_browser_reload',
+    'theme',
     'website',
     'console',
     'auth_app',
@@ -60,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'django_hosts.middleware.HostsRequestMiddleware',
     # 'django_hosts.middleware.HostsResponseMiddleware',
-    # "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -151,7 +153,7 @@ STATICFILES_FINDERS = [
 # Name of static files folder (after called python manage.py collectstatic)
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_DIRS = [BASE_DIR / STATIC_URL]
+STATICFILES_DIRS = [BASE_DIR / STATIC_URL, BASE_DIR / "theme/static_src/src"]
 
 
 MEDIA_URL = '/media/'
@@ -162,3 +164,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = "D:/programs/nodejs/npm.cmd"
