@@ -153,7 +153,7 @@ STATICFILES_FINDERS = [
 # Name of static files folder (after called python manage.py collectstatic)
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_DIRS = [BASE_DIR / STATIC_URL, BASE_DIR / "theme/static/css/dist"]
+STATICFILES_DIRS = [BASE_DIR / STATIC_URL, BASE_DIR / "theme/static"]
 
 
 MEDIA_URL = '/media/'
