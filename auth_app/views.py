@@ -21,7 +21,7 @@ class Login(View):
         if not (request.POST.get("email") and request.POST.get("password")):
             messages.add_message(request, messages.ERROR,
                                  _("Please Fill all fields."))
-            return redirect("auth_app:login")
+            return redirect("login")
 
         user = authenticate(
             username=request.POST.get("email"), password=request.POST.get("password")

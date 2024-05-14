@@ -35,7 +35,7 @@
           // Submit payload.nonce to your server
           $.ajax({
             type: "POST",
-            url: "{% url 'console:payment' %}",
+            url: "{% url 'console:payment' appointment_id=appointment_id  %}",
             data: { payment_method_nonce: payload.nonce, appointment_id: "{{appointment_id}}" },
             beforeSend: function (xhr) {
               xhr.setRequestHeader("X-CSRFToken", document.getElementsByName("csrfmiddlewaretoken")[0].value);

@@ -16,13 +16,17 @@
     background-position: 100% 100%;
   }
 }
+
+[data-carousel-item] {
+  transition: opacity 0.5s ease-in-out;
+}
 </style>
 
 
 <div id="default-carousel" class="relative w-full h-screen" data-carousel="slide">
     <div class="relative h-full overflow-hidden md:h-full">
         <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-            <img src="http://dev.kidzrunz.co.uk/media/gallery/2023-08-02_055235.0178490000.jpeg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <img src="/media/gallery/2023-08-02_055235.0178490000.jpeg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
 			<div class="absolute top-0 left-0 w-full h-full flex p-10 bg-black bg-opacity-50">
 				<div class="flex flex-col  w-full lg:w-6/12 justify-center lg:pt-5 items-start text-center lg:text-left mb-5 md:mb-0">
 				<img src="{% static 'images/logo.png' %}" alt="" class="h-56 z-40 mx-auto md:mx-0 mb-5">
@@ -44,7 +48,7 @@
 			</div>
         </div>
         <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-            <img src="http://dev.kidzrunz.co.uk/media/gallery/2023-08-02_064440.5115740000.jpeg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <img src="/media/gallery/2023-08-02_064440.5115740000.jpeg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
 			<div class="absolute top-0 left-0 w-full h-full flex p-10 bg-black bg-opacity-50">
 				<div class="flex flex-col  w-full lg:w-6/12 justify-center lg:pt-5 items-start text-center lg:text-left mb-5 md:mb-0">
 				<img src="{% static 'images/logo.png' %}" alt="" class="h-56 z-40 mx-auto md:mx-0 mb-5">
@@ -53,7 +57,7 @@
 			</div>
         </div>
         <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-            <img src="http://dev.kidzrunz.co.uk/media/gallery/2023-08-02_065820.1601230000.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <img src="/media/gallery/2023-08-02_065820.1601230000.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
 			<div class="absolute top-0 left-0 w-full h-full flex p-10 bg-black bg-opacity-50">
 				<div class="flex flex-col  w-full lg:w-6/12 justify-center lg:pt-5 items-start text-center lg:text-left mb-5 md:mb-0">
 				<img src="{% static 'images/logo.png' %}" alt="" class="h-56 z-40 mx-auto md:mx-0 mb-5">

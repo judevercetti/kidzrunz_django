@@ -1,0 +1,19 @@
+{% extends './base.html' %} {% load static %} {% block contentarea %}
+
+<div class="my-10 px-4 md:mx-auto w-full md:w-1/2">
+  <div class="bg-white rounded-md p-10 justify-items-stretch">
+    <span class="text-green-600 ">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-20 h-20">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </span>
+    <p class=" mb-8">
+      We appreciate your business! If you have any questions, please email
+      <a href="mailto:info@kidzrunz.co.uk">info@kidzrunz.co.uk</a>.
+    </p>
+
+    <a href="{% url 'console:dashboard' %}" class="bg-blue-500 px-5 py-2 text-white rounded-md">Back</a>
+  </div>
+</div>
+
+{% endblock contentarea %}

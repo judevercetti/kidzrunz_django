@@ -1,5 +1,5 @@
 import braintree
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import View
@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.db.models import Sum
 from django.utils.translation import gettext as _
 from django.contrib.auth.mixins import LoginRequiredMixin
+import stripe
 from auth_app.models import Profile, User
 from console.forms import AppointmentForm
 from console.models import Appointment, BraintreeCustomer, BraintreeTransaction
@@ -83,6 +84,63 @@ class MakeAppointment(LoginRequiredMixin, View):
             print(form.errors)
             print('invalid')
             return redirect('console:appointment')
+
+
+def trialll(request):
+    stripe.api_key = 'sk_test_51NjQ5oE0Ojdo2alyEWyFGPhY3ejC28kvzxv9K6RT0PGIGtMiNA6AP8HWWp59NE8Ky8LH9NbwEWkZ6ZDtiz3fJbrs00mkIIBs8o'
+    # return HttpResponse('trialxxxxx')
+
+    try:
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    'price': 'price_1NjeydE0Ojdo2aly37UoKCqD',
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url='http://localhost:8000/console/payment/success',
+            cancel_url='http://localhost:8000/console/payment/cancel',
+        )
+    except Exception as e:
+        print(f'error: {e}')
+        return HttpResponse('error') #str(e)
+
+    return redirect(checkout_session.url, code=303)
+
+def payment_success(request):
+    context = {}
+    return render(request, 'console/user/payment_success.html', context=context)
+
+def payment_cancel(request):
+    context = {}
+    return render(request, 'console/user/payment_cancel.html', context=context)
+
+class MakeStripePaymentView(LoginRequiredMixin, View):
+    login_url = 'login'
+    template_name = "console/user/make_payment.html"
+    # stripe.api_key = 'sk_test_51NjQ5oE0Ojdo2alyEWyFGPhY3ejC28kvzxv9K6RT0PGIGtMiNA6AP8HWWp59NE8Ky8LH9NbwEWkZ6ZDtiz3fJbrs00mkIIBs8o'
+
+    def get(self, request, appointment_id=None):
+        return 'oi'
+        try:
+            checkout_session = stripe.checkout.Session.create(
+                line_items=[
+                    {
+                        # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                        'price': '5',
+                        'quantity': 1,
+                    },
+                ],
+                mode='payment',
+                success_url='/payment/success',
+                cancel_url='/payment/cancel',
+            )
+        except Exception as e:
+            return str(e)
+
+        return redirect(checkout_session.url, code=303)
 
 
 class MakePaymentView(LoginRequiredMixin, View):
